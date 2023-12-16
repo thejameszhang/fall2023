@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BUFN400-Lec-Growth-Optimal-Portfolios-06</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>BUFN400-Lec-macro-poicy-01</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7476,13 +7476,13 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=da1f07d9-5991-48b9-9684-4c5238941765">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Lecture-Note:-Growth-Optimal-Portfolio">Lecture Note: Growth-Optimal Portfolio<a class="anchor-link" href="#Lecture-Note:-Growth-Optimal-Portfolio">¶</a></h1><h2 id="By-Albert-S.-(Pete)-Kyle">By Albert S. (Pete) Kyle<a class="anchor-link" href="#By-Albert-S.-(Pete)-Kyle">¶</a></h2><h2 id="BUFN400-Fall-2022---University-of-Maryland">BUFN400 Fall 2022---University of Maryland<a class="anchor-link" href="#BUFN400-Fall-2022---University-of-Maryland">¶</a></h2><p>$\newcommand{\E}{\mathrm{E}}$
+<h1 id="Lecture-Note:-Monetary-Policy,-Fiscal-Policy,-and-Budget-Deficits">Lecture Note: Monetary Policy, Fiscal Policy, and Budget Deficits<a class="anchor-link" href="#Lecture-Note:-Monetary-Policy,-Fiscal-Policy,-and-Budget-Deficits">¶</a></h1><h2 id="By-Albert-S.-(Pete)-Kyle">By Albert S. (Pete) Kyle<a class="anchor-link" href="#By-Albert-S.-(Pete)-Kyle">¶</a></h2><h2 id="BUFN400---University-of-Maryland">BUFN400---University of Maryland<a class="anchor-link" href="#BUFN400---University-of-Maryland">¶</a></h2><p>$\newcommand{\E}{\mathrm{E}}$
 $\newcommand{\e}{\mathrm{e}}$
 $\newcommand{\drm}{\mathrm{\, d}}$
 $\newcommand{\var}{\mathrm{var}}$
@@ -7496,418 +7496,217 @@ $\renewcommand{\vec}[1]{\mathbf{#1}}$</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=11e7f155-c5e0-44f2-8418-191b5d4f3670">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><p>Geometric Brownian motion has some properties which are often a source of confusion among researchers and practitioners.</p>
-<p>This lecture reviews these issues.</p>
+<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">¶</a></h3><p>Government levies distorting taxes to fund both real expenditures (defense, education) and social welfare state (social security, medicare, unemployment insurance).</p>
+<p>Government "income statements" and "balance sheets" are conceptually difficult to put together because accounting requires making difficult, arbitrary distinctions.</p>
+<p>Government debt is conceptually the difference between assets and liabilities. Both are hard to measure.</p>
+<p>Assets: Examples: capitalization and deprecition of military equipment, infrastructure (roads and bridges), research, even education. Is the "tax base" an asset?</p>
+<p>Liabilities: Are promised retirement benefits (social security, medicare) liabilities?</p>
+<p>Instead of conceptual measure of liabilities minus assets, can use amount of tradeable debt outstanding. What is "tradeable"? Debt issued to social security system? Debt owned by Fed?</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a0db06b-7b97-42b7-b8cd-8932ec16251c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Mean-and-Median-Returns">Mean and Median Returns<a class="anchor-link" href="#Mean-and-Median-Returns">¶</a></h1><p>Consider an investment which follows a <strong>random walk</strong> (idendically and independently returns) with two possible outcomes:</p>
+<h3 id="Fed">Fed<a class="anchor-link" href="#Fed">¶</a></h3><p>Controls monetary policy. Uses monetary to pursue <strong>dual mandate</strong> of full employment (4 percent) and stable prices (inflation rate of 2 percent).</p>
+<p>Fed directly controls short-term interest rates. Longer term rates are set by market.  Fed is part of market.  Large purchases of longer maturity debt is called <strong>quantitative easing</strong>.</p>
+<p>Fed made huge profits from 2008 to 2020, like a hedge fund, betting on keeping long term interest rates low. After 2020, rising inflation and rising interest rates have resulted in significant losses due to increasing short-term borrowing costs making financing leveraged long positions higher and increasing long-term interest rates reducing the market value of the portfolio of longer maturity bonds.</p>
+<p>Low interest rates stimulates both economic growth and inflation by stimulating borrowing to finance investment, especially housing, but other investment as well.</p>
+<p>Keeping interest rates too low for too long can result in uncontrolled inflation.  For example, Turkey and Argentina have inflation rates of about 100 percent per year or more. Venezuela's inflation has been much higher than this in recent years.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ac9ab32-b56e-4f3a-b932-6803252ece55">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fiscal-Policy-and-Debt">Fiscal Policy and Debt<a class="anchor-link" href="#Fiscal-Policy-and-Debt">¶</a></h3><p>Increasing government expenditures or cutting taxes, financed with debt issueance, represents expansionary fiscal policy.  The extra spending by both public and private sectors tends to expand the economy, at least temporarily.</p>
+<p>If government debt gets too big, both nominal and real interest rates rise. This <strong>crowds out</strong> private investment and private spending, which tends to counteract the effects of expansionary fiscal policy.</p>
+<p>The extent to which fiscal policy can stimulate the economy depends on the balance of savings and investment in the economy.  If firms and households have high savings rates relative to investment, the government can stimulate the economy by running deficits without creating too much inflation.</p>
+<p>From 2001 to 2020, there was a worldwide <strong>savings glut</strong> (i.e., large imbalance of saving over private investment), which allowed the U.S. government to issue large amounts of debt at low interest rates, without resulting in inflation. The U.S. government also issued large amounts of debt during the Great Depression of the 1930s without much inflation. In other periods, including World War II (1940s), the late 1960s and 1970s, government debt issuance and Fed monetary policy resulted in either crowding out of private investement (higher real interest rates) or inflation with low real interest rates.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be2da5a2-007b-4310-9997-4a193cbb5804">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-size-of-government-debt">The size of government debt<a class="anchor-link" href="#The-size-of-government-debt">¶</a></h3><p>The amount of tradeable debt the government can issue without resulting in high real interest rates or inflation depends on the willingness of the population to hold it.  This willingness to hold government debt depends on several factors:</p>
 <ol>
-<li><p>With probability 50 percent, the investment doubles in value (1 dollar grows to 2 dollars).</p>
+<li><p>If consumers save for their own retirments, rather than depending on government pensions, the result is a high savings rate and great capacity for the government to issue debt.  For example, Japan has issued 2-3 times GDP in government debt without inflation.</p>
 </li>
-<li><p>With probability 50 percent, the investment halves in value (1 dollar shrinks to 0.50 dollars).</p>
+<li><p>If the currency is a reserve currency, worldwide market participants use the currency for trading, savings, and funding investment. This probably increases net holdings of the currency, especially since central banks want to hold reserve currencies as reserves due to reserve currencies liquidity and holding its value during times of stress.</p>
 </li>
-</ol>
-<p>Obviously, the expected gross return is $0.50 * 2.00 + 0.50 * 0.50 = 1.25$, so one dollar is expected to grow to 1.25 dollars. The expected net return is $0.50 * 2.00 + 0.50 * 0.50 - 1.00 = 0.25 = 25 \text{ percent}$.</p>
-<p>Although the expected net return is 25 percent, the "effective median" return is 0 percent since doubling and halving converts one dollar into one dollar. More precisely, if the investment is held for an even number of time periods, the median return is exactly 0 percent.</p>
-<p>If an investor holds this investment for many periods, approximately half of the sample paths will have an internal rate of return less than zero and approximately half of the sample paths wil have an internal rate of return greater than zero. This occurs because there will more good periods than bad periods about half the time, and vice versa.  There is also the borderline case where the number of good outcomes is exactly the same as the number of bad outcomes.  This is the theoretical median outcome.</p>
-<p>Here is the puzzle: Although the expected return is 25 percent per year, half of all sample paths have an actual return less than zero, even if the investment is held for many periods.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Mathematical-explanation-for-the-puzzle">Mathematical explanation for the puzzle<a class="anchor-link" href="#Mathematical-explanation-for-the-puzzle">¶</a></h1><p>The mathematical explanation for the puzzle is related to the $\sigma^2 / 2$ term that must be subtracted from the mean when simulating a Brownian motion which will be converted into a geometric Brownian by the exponentiation. The convexity of the $\exp$ function makes the median different from the mean (due to Jensen's inequality).</p>
-<p>Although the two-outcome example is not geometric Brownian motion, the adjustment is approximately the same as $\sigma^2 / 2$:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">])</span>
-<span class="n">probs</span> <span class="o">=</span> <span class="n">probs</span> <span class="o">/</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-<span class="n">rets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.00</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">])</span>
-<span class="n">arithmetic_mean</span> <span class="o">=</span> <span class="n">probs</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rets</span><span class="p">)</span>
-<span class="n">arithmetic_variance</span> <span class="o">=</span> <span class="n">probs</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rets</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">arithmetic_mean</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">arithmetic_variance_adjustment</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="o">*</span> <span class="n">arithmetic_variance</span>
-
-<span class="n">geometric_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">rets</span><span class="o">**</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
-<span class="n">log_mean</span> <span class="o">=</span> <span class="n">probs</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rets</span><span class="p">))</span>
-<span class="n">log_variance</span> <span class="o">=</span> <span class="n">probs</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rets</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">log_mean</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">log_variance_adjustment</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="o">*</span> <span class="n">log_variance</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">arithmetic_mean</span><span class="si">=}</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">geometric_mean</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"approximation: </span><span class="si">{</span><span class="n">arithmetic_variance_adjustment</span><span class="si">=}</span><span class="se">\n</span><span class="s2">correct: </span><span class="si">{</span><span class="n">log_variance_adjustment</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>arithmetic_mean=1.25
- geometric_mean=1.0000000000000002
-approximation: arithmetic_variance_adjustment=0.28125
-correct: log_variance_adjustment=0.2402265069591007
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Intuitive-explanation-for-the-puzzle">Intuitive explanation for the puzzle<a class="anchor-link" href="#Intuitive-explanation-for-the-puzzle">¶</a></h1><p>An intuitive explanation for the puzzle is that most of the expected value of returns over multiple periods comes from the right tail of the distribution (i.e., the ones with the largest number of "good" outcomes).</p>
-<p>Consider what happens if returns are $n$ sample paths are simulated for $m$ periods:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">ntop</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="mi">20</span>
-
-<span class="n">up</span> <span class="o">=</span> <span class="mf">2.00</span>
-<span class="n">down</span> <span class="o">=</span> <span class="mf">0.50</span>
-<span class="n">prob</span> <span class="o">=</span> <span class="mf">0.50</span>
-
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-
-<span class="c1">#rets = rng.random((n, m))</span>
-<span class="c1">#rets = up * (rets &gt; prob) + down * (rets &lt;= (1 - prob))</span>
-
-<span class="n">rets</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">up</span><span class="p">,</span> <span class="n">down</span><span class="p">],</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">prob</span><span class="p">,</span> <span class="mf">1.00</span> <span class="o">-</span> <span class="n">prob</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">rets</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
-
-<span class="n">cum_rets</span> <span class="o">=</span> <span class="n">rets</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cum_rets</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">cum_rets</span> <span class="o">=</span> <span class="n">cum_rets</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># print(cum_rets)</span>
-
-<span class="c1"># Percent of value from ntop returns:</span>
-<span class="n">frac_from_best</span> <span class="o">=</span> <span class="n">cum_rets</span><span class="p">[:</span><span class="n">ntop</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">cum_rets</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A fraction </span><span class="si">{</span><span class="n">frac_from_best</span><span class="si">}</span><span class="s2"> of returns comes from the top </span><span class="si">{</span><span class="n">ntop</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> returns."</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[0.5 2.  0.5 2.  2.  2.  2.  2.  0.5 2.  2.  0.5 0.5 0.5 0.5 0.5 0.5 2.
-  2.  0.5]
- [2.  0.5 0.5 0.5 2.  0.5 2.  0.5 2.  2.  0.5 2.  0.5 0.5 2.  0.5 2.  0.5
-  2.  2. ]]
-A fraction 0.6718453572603227 of returns comes from the top 10 of 1000 returns.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The example in the cell above shows that, when held for 20 periods, over half the expected value comes from the top one percent of returns.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Limit-of-geometric-Brownian-motion">Limit of geometric Brownian motion<a class="anchor-link" href="#Limit-of-geometric-Brownian-motion">¶</a></h1><p>As the number of periods $m$ becomes very large, almost all of the expected value comes from a very small percentage of the good outcomes.</p>
-<p>A related fact: If a geometric Brownian motion has a mean of 1 (i.e., expected return of zero), probablity of obtaining an outcome close to zero (i.e., expected return close to $-100$ percent) goes to one as the number of periods goes to infinity.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-for-self-study">Exercise for self-study<a class="anchor-link" href="#Exercise-for-self-study">¶</a></h2><ol>
-<li><p>Play with the parameter values in the example to verify that value becomes concentrated in the good tail of the distribution.</p>
+<li><p>A highly unequal distribution of wealth tends to create more savings because poorer people, especially those expecting the government to provide retirement pensions, tend to spend their wealth currently while rich people tend to spend their wealth in the distant future.  Thus, having many wealthy savers allows the government to issue debt cheaply. Taxing away the wealth of the rich lowers savings and reduces the ability of the government to issue large amounts of debt.  Within the United States and some other countries, there are two huge sources of wealth: (1) the <strong>mass affluent</strong> saving for retirement and bequest motives (with hundreds of thousands or single-digit millions of wealth) and (2) ultra-wealthy individuals (with many tens of millions or billions in wealth).</p>
 </li>
-<li><p>Verify that the outcomes of geometric Brownian motion become small (relative to the mean) with high probability when the variance becomes large.</p>
+<li><p>If governments try to expropriate or tax away savings and capital, savings will try to leave the country and capital investment will be low.  As a result, governments often impose capital controls to keep capital from leaving the economy.  This is a big issue in China and Argentina today.  Capital controls have been used around the world by many countries throughout history.  The United Stats has informally imposed capital controls by making it difficult for individuals to open foreign bank accounts.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5504048c-c851-4a16-880d-31971361e23b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Practical-implications">Practical implications<a class="anchor-link" href="#Practical-implications">¶</a></h1><p>These simple facts about random walks or geometric Brownian motion have numerous practical implications.</p>
+<h3 id="The-Fed-again">The Fed again<a class="anchor-link" href="#The-Fed-again">¶</a></h3><p>When government deficits are high, the Fed can try to keep interest rates stable and allow the fiscal stimulus to generate economic growth, as a result of which inflation may result.  If the Fed instead keeps inflation low when government spending is generating high deficits, the result is less growth and less inflation, with high real and nominal interest rates.</p>
+<p>When the Fed temporarily loses control of inflation, it may take either a prolonged period of high real and nominal interest rates or a short period of extremely high real rates to bring inflation under control.  As inflation comes under control, real interest rates my rise, even if nominal rates are falling or stable.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89c70fbb-d740-4982-88c9-e0437421632c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Measuring-deficits">Measuring deficits<a class="anchor-link" href="#Measuring-deficits">¶</a></h3><p>Both the government debt and deficits should be measured in real terms, not nominal terms.  The sustainability of government debt depends on the growth rate of the economy.</p>
+<p>If the government debt is 100 percent of GDP and the inflation rate is 5 percent per year, an annual budget deficit of 7 percent of GDP increases the debt by only 2 percent in real terms.  If economic growth is 3 percent per year, the 7 percentage point deficit actually decreases the government debt as a fraction of GDP by 1 percent.  If the 7 percent deficit, 5 percent inflation, and 3 percent growth rate last for many years, the deficit is sustainable.</p>
+<p>Government deficits tend to fluctuate with the business cycle.  In booms, deficits tend to be low because tax revenues are high (especially due to progressive taxes) and social welfare payments (like unemployment insurance) tend to be low.  When a recession hits, the government debt as a fraction of GDP tends worsen greatly due to decreased tax revenue, increased social welfare spending, decreased inflation, and reduced real economic growth. Offsetting this, interest rates tend to fall in recessions, which tends to make financing the government debt cheaper to the extent that debt roles over at lower interest rates.</p>
+<p>From a government accounting perspective, the Fed is part of the private sector, but from an economic perspective, it makes sense to include the Fed as part of the Federal government because the government owns the Fed and is responsible for its financial obligations.  The Fed has accumulated a huge long position in long-term government bonds, financed by short-term borrowing and money issuance.  When interest rates rise, the Fed suffers huge losses.  When rates fall, as may happen in a recession, the Fed gains from increasing prices for the long-term assets its hold and from lower financing costs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a15ef3ff-ede9-4cbf-8ef3-7867c378e8b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="A-historical-perspective">A historical perspective<a class="anchor-link" href="#A-historical-perspective">¶</a></h3><p>In past centuries, countries were on the <strong>gold standard</strong> or <strong>silver standard</strong>, which was implemented by fixed exchange rates between currencies and gold or silver.  Countries accumulated huge deficits to fight wars.  During the wars, there was typically high inflation. After wars, the countries paid back their debts slowly, real interest rates were sometimes high, and there were long periods of deflation.  For example, the United States experience mostly deflation from the end of the Revolutionary War in the late 1700s until the beginning of the 20th century.</p>
+<p>To avoid panics in which a countries creditors refused to lend the country money, countries often financed wars by issuing long-term bonds on which the debt service, consistenting of interest and required principal repayments, was deemed to be something which he country could afford.  These bonds were paid back over multiple decades.</p>
+<p>The United States ultimately resorted to inflation in the 1960s and 1970s to pay back its World War II debt. This required formally leaving the gold standard, which occurred under Nixon.</p>
+<p>In the 20th century, countries moved to fiat currency, whose value is determined by central banks.  Such currencies create and inflation bias unless the central banks operate with great credibility backed by a legal policy mandate.  In recent decades, the United States, the EU (with the Euro), Japan, and Switzerland maintained low inflation during a period of high worldwide savings.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0eaa800-0896-48ac-8351-22b5c00b89ed">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Political-process">Political process<a class="anchor-link" href="#Political-process">¶</a></h3><p>Politicians like to spend money more than they like to finance the spending by levying taxes. To justify high spending, even if it is not sustainable, politicians can engage in two subterfuges:</p>
 <ol>
-<li><p>Some people say, "Due to the way in which venture capitalists invest, most of the returns from a venture capital fund come from a few good investments." This statement is a simple consequence of the properties of geometric Brownian motion. Venture capital investments have very high variance, sometimes approximately 100 percent per year. Returns also have a shape not too different from a lognormal.  Therefore the statement is simply a property of the high variance of the approximately lognormal investment.  It depends on nothing else which is specific to venture capital.</p>
+<li><p>Be excessively optimistic by assuming that a boom will last forever, keeping revenues high and social welfare expenditures low, and high spending affordable.</p>
 </li>
-<li><p>Some people say, "Hedge funds offer risky returns, but most of them underperform their benchmark over time. Therefore, hedge funds are bad investments." This statement may be incorrect or misleading in several respects. First, most hedge funds have relatively low volatilities of 10-15 percent per year. Second, if hedge funds did have high volatility and returns approximated geometric Brownian motion, then most hedge funds would underperform over time (by half their variance, i.e., 50 basis points per year for a hedge fund with 10 percent annual volatility), even if the hedge funds did match or exceed their benchmarks on average.</p>
-</li>
-<li><p>Some people say, "Long term internal rate of return is a good statistic for estimating long-term mean returns".  This statement is false because the long-term IRR measures the mean of the log returns, not mean returns.  It is lower than the actual mean by half the variance if returns follow geometric Brownian motion.</p>
-</li>
-<li><p>Some people say, "If a portfolio has good mean returns and you invest with more leverage (e.g., 60 percent, 100 percent, 200 percent, exposure to the asset), then your investment will have better performance in the long run."  This statement is false.  We will explain why next.</p>
+<li><p>Disguise expenditures as investments which will pay for themselves in the long run.  This is frequently done with subsidized loans to various special interest groups, including farmers who want cheap credit, exporters who want to compete in foreign markets, small businesses which want financing. In recent decades, the government has subsidized housing finance for poor and middle class families thorough the FHA (Federal Housing Administration) and the GSEs (<strong>Government Sponsored Enterprises</strong>, specifically <strong>Fannie Mae</strong> and <strong>Freddie Mac</strong>). Most recently, student loans have become a huge political and budget issue.</p>
 </li>
 </ol>
+<p>To overcome these bad incentives, Congress set up the <strong>Congressional Budget Office</strong> (CBO), which is mandated to make nonpartisan calculations of the effect of expenditure plans on the deficit. The CBO uses standardized assumptions about economic growth to estimate revenues and expenditures.  It also estimates the costs of various appropriations, for example by estimating default rates on subsidizes debt so that these can be included in a reasonable estimate of government budget deficits.  Congress includes CBO analysis in its budget process in an effort to limit incentives for fiscal irresponsibility.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0bfdd241-b505-4823-8753-bde2098fc4cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Internal-rate-of-return">Internal rate of return<a class="anchor-link" href="#Internal-rate-of-return">¶</a></h1><p>Consider a log random-walk with gross returns $R = (R_1, R_2, ..., R_T)$, and cumulative returns $(P = P_1, P_2, ..., P_T)$ obtained from the cumulative product of gross returns $P_t = R_1 \sm R_2 \sm \sm \sm R_t$. Assume the gross returns $R_t$ are lognormally distributed random variables of the form $R_t = \e^{r_t}$, where $r_t$ is distributed $\mathcal{N}(\bar{r}, \sigma^2)$. The mean return is $\bar{R} = \e^{\bar{r} + \sigma^2 / 2}$.</p>
-<p>The <strong>gross internal rate of return</strong>, which is defined as $P_T^{1/T}$, is the <strong>geometric mean</strong> of the individual gross returns $R_t$:</p>
-<p>\begin{align}
-P_T^{1/T} &amp;= \exp \left( \frac{1}{T} \sm \log P_T \right) \\
-&amp;= \exp  \left( \frac{1}{T} \sm \sum_t \log R_t \right) \\
-&amp;= \exp  \left( \frac{1}{T} \sm \sum_t r_t \right). 
-\end{align}</p>
-<p>If one dollar is invested with a constant rate of return equal to the gross internal rate of return, it grows to the same value $P_T$ over $T$ periods as the actual risky investment. The gross internal rate of return is a random variable which depends on the actual random gross returns $R = (R_1, R_2, ..., R_T)$.</p>
-<p>The <strong>net (log) internal rate of return</strong> is the log of the gross internal rate of return:</p>
-<p>\begin{align}
-\log \left( P_T^{1/T} \right) &amp;= \frac{1}{T} \sm \sum_t r_t . 
-\end{align}</p>
-<p>Thus, the (log) net internal rate of return is the sample mean of the log returns $r_t$.</p>
-<p>Now consider the difference between the expectation of the log of the internal rate of return and the log of the expected internal rate of return.</p>
-<p>The log of the expected internal rate of return is</p>
-<p>\begin{align}
-\log \left( \E \left[ P_T^{1/T} \right) \right] 
-&amp;= \log \left( \E \left[ \exp  \left( \frac{1}{T} \sm \sum_t r_t \right) \right] \right). 
-\end{align}</p>
-<p>Now $\frac{1}{T} \sm \sum_t r_t$ is distributed $\mathcal{N}(\bar{r}, \sigma^2 / T)$, so $\E \left[ \exp  \left( \frac{1}{T} \sm \sum_t r_t \right) \right] = \exp ( \bar{r} + \tfrac{1}{2} \sm \sigma^2 / T )$ .</p>
-<p>Therefore, the log of the expected internal rate of return is</p>
-<p>\begin{align}
-\log \left( \E \left[ P_T^{1/T} \right) \right] 
-&amp;= \log \left( \exp ( \bar{r} + \tfrac{1}{2} \sm \sigma^2 / T ) \right) \\
-&amp;= \bar{r} + \tfrac{1}{2} \sm \sigma^2 / T \\ 
-\end{align}</p>
-<p>The log of the expected internal rate of return is the log of the expected gross internal rate of return.</p>
+<h3 id="Credit-crises-and-bank-runs">Credit crises and bank runs<a class="anchor-link" href="#Credit-crises-and-bank-runs">¶</a></h3><p>If countries have fixed exchange rates (including the gold standard), then the countries are vulnerable to speculative attacks against their currencies if the maturity structure of their debts is not sufficiently long term.</p>
+<p>With fiat currency, the government can always meet its financial obligtions by printing money.  Since the central bank can print money, fiat currency allows the government to fight speculative attacks and bank runs by printing however much money it takes to fight the run or the attack.  Clearly, the ability to pring money is a valuable power, which allows the central bank to create liquidity where it would not otherwise exist.</p>
+<p>An important political and economic question concerns how this power to create liquidity is to be used.  Is it used to raise revenue for the government or used to subsidize private actors, who respond to the subsidies by being more highly leveraged than would otherwise be prudent.  The answer seems to be that governments use the ability to print money to subsidize the banking system. Before the Great Depression of the 1930s, the banks were lenders of last resort to the economy and therefore had incentives to behave with fiscal prudence.  Nowadays banks know they will be bailed out if they fail; they therefore have incentives to over leverage their balance sheets.  Effective government regulation can in principle prevent this, but I have not seen effectively implemented bank capital requirements in my lifetime.  The savings and loan "crisis" of the 1970s and 1980s, the subprime crisis, and the recent failures of Silicon Valley Bank and First Republic Bank all resulted from ineffective government regulation.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1fd8cda9-83ee-4ea6-a161-56037b92215f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Exercise-for-self-study">Exercise for self-study<a class="anchor-link" href="#Exercise-for-self-study">¶</a></h1><p>Explain with more detail why the investor with a short position trades in a destabilizing manner.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Dynamic-Trading-Strategies">Dynamic Trading Strategies<a class="anchor-link" href="#Dynamic-Trading-Strategies">¶</a></h1><p>Now suppose that in investor invests a fraction $x$ of wealth in the risky asset and fraction $1-x$ in a safe asset with gross return $R_f$. Suppose the annualized expected gross return of the risky asset is expressed as $R_f + \pi$, and the annualized log variance is approximately $\sigma^2$. The continuously compounded expected return of the portfolio is $r_f + x \sm \pi$ (and the expected return, not compounded, is $R_f\sm \mathrm{e}^\pi$), and the log-variance is $x^2 \sm \sigma^2$.</p>
-<p>Now there are some theoretical and practical issues concerned with implementing such an investment strategy over time.</p>
+<h3 id="Left-versus-Right">Left versus Right<a class="anchor-link" href="#Left-versus-Right">¶</a></h3><p>Traditionally, it is often argued that Republicans favor fiscal responsibility and low government spending while Democrats favor large deficits and high government spending. These is some evidence that this is the case:</p>
 <ol>
-<li><p>If $ x = 0$, the investor fully invested in the risk-free asset and does not need to trade.</p>
+<li><p>Franklin Roosevelt increased government spending and favored large deficits during the Great Depression of the 1930s.  The debate over <strong>Keynsian economics</strong> has a left-right flavor for a hundred years. (NB: The debate actually started before the Great Depression in the 1930s; it was going strong in the 1920s.)</p>
 </li>
-<li><p>If $x = 1$, the investor is fully invested in the risky asset and does not need to trade.</p>
+<li><p>John F. Kennedy cut taxes and Lyndon Johnson greatly expanded the social welfare state in the 1960s. The Vietnam War was associated with large deficits and inflation.</p>
 </li>
-<li><p>if $0 &lt; x &lt; 1$, the investor needs to rebalance the portfolio over time.  At the end of each period, the investor holds a fraction greater than $x$ in the risky asset if its return was greater than the risk-free asset and holds a fraction less than $x$ is its return was less than the risk-free asset.  Therefore, to maintain the target fraction $x$, the investor needs to engage in a dynamic trading strategy of selling the risky asset when its price rises and buying the risky asset when its price falls. This strategy is <strong>stabilizing</strong> in the sense that its price impact goes against market movement.</p>
+<li><p>Barack Obama presided over another increase in government spending (largely to finance expansion of government-funded health care). The Great Recession of 2008-2012 was associated with large deficits and high spending.</p>
 </li>
-<li><p>If $x &gt; 1$, the investor borrows at the risk-free rate to invest more than 100 percent of wealth in the risky asset. We can think of the borrowing as taking place in a margin account. Now the investor still needs to rebalance the portfolio over time, but the rebalancing strategy becomes destabilizing.  At the end of each period, the investor holds a fraction less than $x$ in the risky asset if its return was greater than the risk-free asset and holds a fraction more than $x$ is its return was less than the risk-free asset.  Therefore, to maintain the target fraction $x$, the investor needs to engage in a dynamic trading strategy of buying the risky asset when its price rises and selling the risky asset when its price falls. This strategy is <strong>destabilizing</strong> in the sense that its price impact amplifies market movement.</p>
-</li>
-<li><p>If $x &lt; 0$, the investor borrows the asset to sell it short and has more than 100 percent of wealth ($1 - x$, with $x$ negative)at the risk-free rate. Now the investor still needs to rebalance the portfolio over time, but the rebalancing strategy remains destabilizing, like the leveraged long investor with $x &gt; 1$.  Therefore, to maintain the target fraction $x$, the investor needs to engage in a dynamic trading strategy of buying the risky asset when its price rises and selling the risky asset when its price falls. This strategy is <strong>destabilizing</strong> in the sense that its price impact amplifies market movement.</p>
+<li><p>Joe Biden proposed one of the largest increases in government spending ever. This was ultimately scaled back due to opposition by Senator Joe Manchin.</p>
 </li>
 </ol>
-<p>If the the time interval representated by period is very short, then the investor can be viewed as almost rebalancing continuously.  If the time interval is long, the the investor rebalances infrequently. Theoretically, this allows bad things to happen if the investor is leveraged long ($x &gt; 1$) or short ($x &lt; 0$).</p>
+<p>Not all examples of increases in government spending are associated with Democrats:</p>
 <ol>
-<li><p>If the price falls more than 50 percent (relative to the risk-free asset) in one period, then a leveraged long investor with $x &gt; 2$ is wiped out; he should have sold as prices fell to meet margin calls but did not do so.</p>
+<li><p>Jimmy Carter may have been more fiscally responsible than Richard Nixon.</p>
 </li>
-<li><p>If the price rises more than 100 percent (relative to the risk-free asset) in one period, the an short investor with $x &lt; -1$ is also wiped out; he should have bought back his short position as prices fell but did not do so.</p>
+<li><p>There were substantial government deficits under Ronald Reagan, where tight monetary policy was used to fight inflation in the presence of substantial deficits.</p>
 </li>
-</ol>
-<p>In practical market conditions, investors do not rebalance continuously to avoide trading costs, including temporary market impact from buying or selling large amount quickly.  Large investors therefore smooth their trading out over time. If the smoothing takes place over a time period which is too long, then the investor needs to pay attention to his ability to meet margin calls.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Practical--Examples">Practical  Examples<a class="anchor-link" href="#Practical--Examples">¶</a></h1><p>There are examples of temporary market dislocation are related to the speed with which large investors rebalance portfolios.</p>
-<ol>
-<li><p>In the 1987 stock market crash, portfolio insurers had changing target portfolios which involved selling when prices fell. When prices did fall, their selling seems to have exacerbated the collapse in prices and amplified the market crash.  I think it converted a decline of a 2--3 percent into a decline of 30 percent.</p>
+<li><p>The two Bush administrations were not substantially different from the Clinto administration with regard to fiscal stimulus.  The Clinton administration had improving deficits due to economic growth in the late 1990s.</p>
 </li>
-<li><p>The collapse of Archegos Capital may be related to temporary price impact making it impossible to liquidate gigantice positions quickly enough to avoid collapse.</p>
+<li><p>Donald Trump introduced elements of populist spending while cutting taxes.</p>
 </li>
 </ol>
+<p>Currently it is not clear whether the Republicans are going to pursue their "traditional" (but inconsistently practiced) fiscal conservatism or continue with a "populist" agenda (associated with Donald Trump), which favors higher spending, lower taxes (especially on business), and perhaps optimistic assumptions about economic growth.</p>
+<p>The politics of deficits in Europe is similar to the United States.  Traditionally, the left (labor parties and socialist parties) has been associated with higher inflation and deficits but the right (Christian democrats) have sometimes favored austerity and other times adoped a more populist agenda associated with less fiscal austerity.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9017dbb7-f685-4b6c-8076-060f14f8bcdd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Growth-optimal-portfolio">Growth optimal portfolio<a class="anchor-link" href="#Growth-optimal-portfolio">¶</a></h1><p>Now let us suppose that the time period between rebalancings and the temporary market impact of rebalancing are both small enough that the investor can be approximately assumed to trade continuously. Over a long period of time, the asset approximately follows geometric Brownian. Recall that the expected return of the portfolio is $R_f + x \sm \pi$, and the variance is $x^2 \sm \sigma^2$. The expected log return (long-run IRR) is $R_f + x \sm \pi - \tfrac{1}{2} \sm x^2 \sm \sigma^2$.</p>
-<p>Now suppose that the investor has the objective of achieving the highest possible internal rate of return. The investor choose $x$ to maximize</p>
-<p>$$
-R_f + x \sm \pi - \tfrac{1}{2} \sm x^2 \sm \sigma^2.
-$$</p>
-<p>Obviously, the first-order condition for this optimization problem is</p>
-<p>$$
-x \sm \sigma^2 = \pi
-$$</p>
-<p>This implies the demand function</p>
-<p>$$
-x = \frac{\pi}{\sigma^2}.
-$$</p>
-<p>Intuitively, the investor chooses $x$ to balance a tradeoff between risk $\sigma^2$ and return $\pi$.</p>
-<p>Intitively, the investor also chooses between sacrificing expected return if $x$ is too small while avoiding "blowing up" if $x$ is too large. Investors who are too highly leveraged will suffer gigantic drawdowns which make their achieved IRR low, even if their expected return (overwhelmingly coming from a small number "best" paths) is high.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d997fcc0-235c-4bfd-86f1-c5dfca970d4b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Sharpe-ratio-and-volatility">Sharpe ratio and volatility<a class="anchor-link" href="#Sharpe-ratio-and-volatility">¶</a></h1><p>The Sharpe ratio is defined as $\pi / \sigma$.  We can write the optimal demand as</p>
-<p>$$
-x \sm \sigma = \frac{\pi}{\sigma}.
-$$</p>
-<p>In this equation, the left side is the volatility of the portfolio.  The right side is the Sharpe ratio. Our result says that an investor maximizing long-term IRR chooses portfolio volatility to equal the Sharpe ratio.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c908965a-cf89-4b8e-960b-50f30ab1bf27">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Practical-considerations">Practical considerations<a class="anchor-link" href="#Practical-considerations">¶</a></h1><p>In practice, the investor's estimate of mean and variance will change over time. If so, the investor maximizing long-run IRR continues to engage in the short-run growth optimal strategy, choosing portfolio volatility to equal the Sharpe ratio, while adjusting the portfolio volatility over time.</p>
-<p>This is a surprizing result which confuses investors, researchers, and politicians. Many people have the intuition that financial investors ignore long-run returns when they focus on short-term returns. The dynamic growth optimal portfolio result shows that this intuition is wrong. An investor who maximizes long-run IRR does indeed focus on the short-term risk-return tradeoff.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=273e02b3-4bca-4128-b205-7954cd0590e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Risk-aversion">Risk aversion<a class="anchor-link" href="#Risk-aversion">¶</a></h1><p>A simplistic, intuitive way to generalize the demand function is to introduce a <strong>risk aversion parameter</strong> $\rho$, then write the demand function as</p>
-<p>$$
-x = \frac{\pi}{\rho \sm \sigma^2}.
-$$</p>
-<p>If $\rho = 1$, the solution is the growth-optimal portfolio. Finance researchers call this solution the solution for a <strong>log utility</strong> investor. If $\rho &gt; 1$, the investor is <strong>more risk averse than log</strong> and holds a more conservative portfolio.  If $\rho &gt; 1$, the investor is <strong>less risk averse than log</strong> and holds a portfolio riskier than the growth-optimal portfolio.</p>
-<p>There is a large finance research literature which deals with this problem.  The above equation can be thought of as a reasonable approximation to the solution, not the exact solution.</p>
-<p>One issue concerns what happens when $\pi$ is negative and the investor wants to go short.  Mathematically, the demand says the standard deviation is negative.  While this does not make sense mathematically, it does capture correctly the finance intuition that the investor has negative exposure to the risky asset.  It can be shown that what really matters is the <strong>squared Sharpe ratio</strong>.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>`</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=14fc8f93-dd89-4f96-ae16-aaea2c4bc000">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

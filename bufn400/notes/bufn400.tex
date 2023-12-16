@@ -1,0 +1,455 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{ekesh}
+\usepackage[noend]{algpseudocode}
+\usepackage{answers}
+\usepackage{array}
+\usepackage{tikz}
+\newenvironment{allintypewriter}{\ttfamily}{\par}
+\usepackage{listings}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
+\usepackage{color}
+\usepackage{mathtools}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\E}{\mathbb{E}}
+\usetikzlibrary{arrows}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\renewcommand{\O}{\mathcal{O}}
+\declaretheorem[style=thmbluebox,name={Chinese Remainder Theorem}]{CRT}
+\renewcommand{\theCRT}{\Alph{CRT}}
+\setlength\parindent{0pt}
+\usepackage{sansmath}
+\usepackage{pgfplots}
+
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}  %                 ...positioning nodes
+\usetikzlibrary{arrows}       %                 ...customizing arrows
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\tr}{{\rm tr\ }}
+\newcommand{\im}{{\rm Im\ }}
+\newcommand{\spann}{{\rm span\ }}
+\newcommand{\Col}{{\rm Col\ }}
+\newcommand{\Row}{{\rm Row\ }}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\dt}{\ {\rm d }t}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\horizontal}{\par\noindent\rule{\textwidth}{0.4pt}}
+\usepackage[top=3cm,left=3cm,right=3cm,bottom=3cm]{geometry}
+\newcommand{\mref}[3][red]{\hypersetup{linkcolor=#1}\cref{#2}{#3}\hypersetup{linkcolor=blue}}%<<<changed
+
+\tikzset{node distance=4.5cm, % Minimum distance between two nodes. Change if necessary.
+         every state/.style={ % Sets the properties for each state
+           semithick,
+           fill=cyan!40},
+         initial text={},     % No label on start arrow
+         double distance=4pt, % Adjust appearance of accept states
+         every edge/.style={  % Sets the properties for each transition
+         draw,
+           ->,>=stealth',     % Makes edges directed with bold arrowheads
+           auto,
+           semithick}}
+
+
+% Start of document.
+\newcommand{\sep}{\hspace*{.5em}}
+\pgfplotsset{compat=1.18}
+\setlength{\marginparwidth}{2cm}
+\begin{document}
+\title{BUFN400: Intro to Financial Markets \& Datasets}
+\author{James Zhang\thanks{Email: \mailto{jzhang72@terpmail.umd.edu}}}
+\date{\today}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\maketitle
+    These are my notes for UMD's BUFN400, which is an the introductory class to the Computational Finance Minor. These notes are taken live in class (``live-\TeX"-ed). As a reference, I may use Professor Albert 'Pete' Kyle's notes from Fall 2023. This course is taught by Professor Albert 'Pete' Kyle. 
+\tableofcontents
+\newpage
+
+\section{Background Notes}
+
+\subsection{Linear Algebra}
+
+\subsection{Bernoulli and Binomial Random Variables}
+
+\subsection{Normal Distribution}
+
+\subsection{Conditional Distributions}
+
+\subsection{Simple Ordinary Least Squares}
+
+\subsection{Multiple Ordinary Least Squares}
+
+\section{Time Value of Money}
+
+The main idea of this section is to clarify that the notion that "a dollar today is worth more than a dollar in the future" is true most of the time, but not always, with several countries in the recent decades actually having negative interest rates.
+
+\definition{
+    The \vocab{time value of money} is based on the idea that cash at different dates has different values. We will use four different ways to keep track of interest rates, all of which are used to measure the time value of money.
+}
+
+\subsection{Simple Interest}
+
+\definition{\vocab{Simple interest} means that the the same amount of dollar interest is earned linearly, every single day. Let $r_s$ be the interest rate per year, $m$ be the investment period (in years), $v_0$ be the principal (amount invested), and $v_1$ be the principal plus interest. Therefore, we have
+\[v_1 = v_0(1 + m * r_s)\]
+
+\subsection{Compound Interest}
+
+\definition{Let $N$ be the number of compounding periods per year such that $N = 2$ means semi-annual compounding (bonds), $N = 12$ means monthly compounding (mortgages), etc. It follows that $r_N$ is the interest rate compounded $N$ times per year. Then using similar notation to simple interest, we have the following formula for \vocab{compound interest.}}
+\[v_1 = v_0(1 + r_N / N)^{N * m}\]
+
+\subsection{Continuously Compounded Interest ($e^{rt}$)}
+
+Theoretically, we can have continuously compounded interest where $N \to \infty$. Observe that
+\[e^x := \sum_{x=0}^\infty \frac{x^k}{k!} = \lim_{N\to\infty} (1 + \frac{x}{N})^N\]
+Let $x = r_\infty$ and $N = N * m$
+\[\lim_{N\to\infty} (1 + \frac{r_\infty}{N})^{N * m} = e^{r_\infty * m}\]
+\[v_1 = v_0e^{r_\infty * m}\]
+
+\subsection{Discount Rates}
+
+\definition{Instead of thinking about some initial principal and what price it can grow to, \vocab{discount rate} considers how much money can be owed in the future, and applying a linear discount how that translates to how much money can be borrowed now.}
+\[v_0 = v_1(1 - r_d * m) \implies v_1 = \dfrac{v_0}{1 - r_d * m}\]
+
+\subsection{Present Value and Future Value}
+
+\definition{Let \vocab{$v_0$} be the present value of an investment and let \vocab{$v_1$} be the future value of an investment. We can then denote
+\begin{itemize}
+    \item $v_1 / v_0$ is the \vocab{future value of one dollar}
+    \item $v_0 / v_1$ is the \vocab{present value of one dollar} or \vocab{discount factor}.
+\end{itemize}}
+
+\begin{note}
+    Observe the following notation $r(t_0, m)$ which describes the interest rate at the investment time $t_0$ with a maturity $m$
+\end{note}
+
+\begin{note}
+    If we hold $t_0$ constant and vary $m$, we have a function of one variable. Graphing this with varying $m$ values is called the \vocab{term structure of interest rates} or the \vocab{yield curve}. Note that we can have $r_s(t_0, m), r_N(t_0, m), r_\infty(t_0, m), $ and $r_d(t_0, m)$
+\end{note}
+
+\begin{note}
+    Recall that by definition, we have the discount factor is the present value of one dollar, which we can express as 
+    \[df(t_0, m) = v_0 / v_1\]
+    By substitution into the above definitions of interest, we obtain
+    \[df_s(t_0, m) = \dfrac{1}{1 + r_s(t_0, m) * m}\]
+    \[df_N(t_0, m) = \dfrac{1}{(1 + r_N(t_0, m) / N)^{N * m}}\]
+    \[df_\infty(t_0, n) = e^{-r_\infty(t_0, m)* m}\]
+    \[df_d(t_0, m) = 1 - r_d(t_0, m) * m\]
+
+    Oftentimes, we wish to start with the discount factor calculate the corresponding interest rate. This can be trivially done by solving for $r(t_0, m)$ in each of the four above equations.
+\end{note}
+
+\subsection{Derived Interest Rates for Quoting and Modeling}
+
+\definition{\vocab{Quoting} refers to the idea that interest rates (derived from discount factors) provide a convenient language for expressing prices for assets which could also otherwise be expressed as discount factors. It is often inconvenient, non-intuitive, and error-prone to conduct trading by using discount factors or prices for dollars in the future. 
+}
+
+\definition{For our purposes, let us define a (zero-coupon) term structure model or (zero-coupon) yield curve model as a function which maps maturities 
+$m$ of zero-coupon bonds into continuously compounded interest rates 
+$r(t_0, m)$
+ at a point in time 
+$t_0$. The yield curve is monotonically increasing.}
+
+\subsection{Implied Forward Rates}
+
+If the yield curve is estimated at two different points in time, the estimated yield curves are likely to be different because interest rates fluctuate over time. What does it mean for the yield curve to remain unchanging or static over time? There are two ways to define this idea.
+
+\subsubsection{Unchanging Yield Curve Function}
+
+If you estimated the yield curve every single day, then the graph of the yield curve will not change.
+\[f_{yc}(t_1, m) = f_{yc}(t_0, m) \ \forall \ t, m\]
+\begin{note}
+    Suppose, for example, that the yield curve is upward sloping in the sense that long rates are higher than short rates. Than an investment strategy of investing in long-term securities is more profitable than a strategy of rolling over short-term investments.
+\end{note}
+\definition{\vocab{Rolling over} refers to the idea of replacing the previous investment with a different one. We call this \vocab{riding the yield curve}}
+
+\subsubsection{Unchanging Implied Returns: Implied Forward Rates and Spot Rates}
+
+In general, the returns from rolling over short-term investments is different from the returns on a long-term investment.
+
+\begin{example}
+    Let us have three dates $t_0, t_1, t_2$ and two maturities $m_1 = t_1 - t_0, m_2 = t_2 - t_1$. We have two strategies: purchase a long term bond with maturity $m_1 + m_2$ at time $t_0$ or buy a bond with maturity $m_1$ at $t_0$ and then roll it over and buy a bond with maturity $m_2$ at $t_1$. Let us model this using continuously compounded interest rates.
+    \[e^{r(t_0, m_1 + m_2) * (m_1 + m_2) } \neq e^{r(t_0, m_1) * m_1} * e^{r(t_1, m_2) * m_2}\]
+    The returns of these two strategies are probably different because we don't know the \vocab{future spot rate} $r(t_1, m_2)$ at time $t_0$. However, let us define the \vocab{implied forward rate} $r_f(t_0, t_1, m_2)$ where $t_1 = t_0 + m_1$ such that the returns on the two strategies are equal. By substitution
+    \[e^{r(t_0, m_1 + m_2) * (m_1 + m_2) } = e^{r(t_0, m_1) * m_1} * e^{r_f(t_0, t_1, m_2) * m_2}\]
+    Taking logs of both sides, 
+    \[r(t_0, m_1 + m_2) * (m_1 + m_2)= r(t_0, m_1) * m_1 + r_f(t_0, t_1, m_2) * m_2\]
+    Taking a few weighted averages and solving for the implied forward rate, we obtain
+    \[r_f(t_0, t_1, m_2) = \dfrac{r(t_0, m_1 + m_2) * (m_1 + m_2) - r(t_0, m_1) * m_1}{m_2}\]
+    \begin{note}
+    The implied forward rates answers precisely the question, "What does the future spot rate $r(t_1, m_2)$
+     have to be in order to make returns on a strategy of buying a long maturity security the same as buying a short maturity security and rolling over to another short maturity security?"
+    \end{note}
+    
+\end{example}
+
+If the actual forward rate is not equal to the implied forward rate, then a trader could have an arbitrage opportunity.
+
+\subsubsection{Instantaneous Forward Rates}
+
+\definition{Suppose that $m_2$ is a very short period of time in the example above. To emphasize this, let us substitute $m_2$ for $\Delta m$ into the equation for the implied forward rate.
+\[r_f(t_0, t_1, \Delta m) = \dfrac{r(t_0, m_1 + \Delta m) * (m_1 + \Delta m) - r(t_0, m_1) * m_1}{\Delta m}\]
+Taking the limit as $\Delta m \to 0$, we have the \vocab{instantaneous forward rate}
+\[r_f(t_0, t_1, 0) := \dfrac{\partial r(t_0, m_1)}{\partial m_1} * m_1 + r(t_0, m_1)\]
+}
+
+\subsubsection{Forward Discount Factor}
+
+\definition{We define the \vocab{forward discount factor} to be
+\[df_f(t_0, t_0 + m_1, m_2) = \dfrac{df_(t_0, m_1 + m_2)}{df(t_0, m_1)}\]}
+
+\subsubsection{The Expectations Hypothesis of the Term Structure of Interest Rates}
+
+What is the relationship between current implied forward rates, which are known based on the current yield curve, and future spot rates, which are unknown and random based on current information?
+
+\begin{note}
+    It is natural to hypothesize that known implied forward rates can be interpreted as estimates of unknown future spot rates. The expectations hypothesis of the term structure of interest rates says, informally, that forward rates are equal to expected future spot rates. This hypothesis is a variation on the efficient markets hypothesis, which we will study later.
+\end{note}
+
+\section{Yield to Maturity and Duration}
+
+\definition{The \vocab{yield to maturity} on a fixed income security (sum of the interest payments) is defined mathematically as the constant interest rate which makes the present value of the security equal to its current price. The yield to maturity is also known as \vocab{internal rate of return}.}
+
+\begin{note}
+    Defined this way, the yield to maturity is associated with two functions: a function mapping yield to maturity to the price of the security, and the inverse function mapping the price of the security to its corresponding yield of maturity.
+\end{note}
+
+\subsection{Present Value and Net Present Value as Functions of Yield to Maturity}
+
+\definition{Given a vector of cash flows $c$ and a vector of timestamps $t$, where all cash flows are positive except for the first element which is negative to represent the cost of buying the security, we denote the \vocab{present value} as
+\[PV(y_N; c, t, N) = \sum_{k=1}^N \dfrac{c[k]}{(1 + y_N / N)^{N * (t[k] - t[0])}}\]}
+such that the present flow calculation ignores the first (negative) cash flow.
+\[NPV(y_N; c, t, N) = \sum_{k=0}^N \dfrac{c[k]}{(1 + y_N / N)^{N * (t[k] - t[0])}}\]}
+\[c[0] + PV = NPV\]
+\begin{note}
+    Note that PV and NPV are essentially implemented as inner products of cash flows and discount factors.
+\end{note}
+
+\definition{If an investment opportunity has \vocab{zero NPV}, then it is fairly priced in that an investor will want to neither buy or sell the security at price $-c[0]$}
+
+\definition{\vocab{Annuity} is loosely defined as a sequence of payments made at regular time intervals for a finite maturity.}
+
+\definition{An annuity which continues forever is called a \vocab{perpetuity}. Conceptually, fixed-coupon bonds with infinite maturity are perpetuities.}
+
+\begin{lemma}
+    If the YTM on a perpetuity with coupon rate $c$ per year is $y$, what is the present value of the security?
+
+    \[PV = \sum_{n=1}^\infty \dfrac{\frac{c}{N}}{(1 + y/N)^n} = \frac{c}{y}\]
+    
+\end{lemma}
+
+Using this formula, we can also compute the present values of discrete and continuous annuities. Suppose an annuity starts payment at time $t_0$ and stops at time $t_n$. Then it follows that the present value of the annuity is the present value of a perpetuity starting at $t_0$ minus the present value of a perpetuity starting one payment after $t_n$.
+
+\subsection{Notes on Root Finding Algorithms}
+
+Optimized algorithms are necessary for finding yield to maturity as a function of asset prices.
+
+\begin{enumerate}
+    \item The \vocab{bisection method} starts with two guesses which bracket the solution, then selects the next guess as the midpoint, obtains a smaller bracketing interval, and continues until the two guesses which bracket the solution are equal up to a given tolerance.
+    \item The \vocab{secant method} pretends that the function is the linear function defined by its values at the endpoints of the bracketing interval, solves the linear function for the value which makes it zero, then obtains a better bracketing interval.
+    \item \vocab{Newton's method} assumes that the function is linear at a guessed value, with a slope inferred from the (perhaps numerical) derivative at the guessed value, then solves the linear function for the theoretical solution. This method converges very fast when the initial guess is close to being correct; it has quadratic convergence, which doubles the number of significant digits in the solution on each iteration. If the guess is not close enough to the solution, one iteration of Newton's method might produce a result worse than the guess itself.
+\end{enumerate}
+
+\subsection{Duration}
+
+\definition{\vocab{Duration} is expressed as an interval of time. The duration on a pure discount security (zero coupon bond) is exactly the maturity of the security. If it is a coupon bond, then the duration is less than the maturity.}
+
+\subsubsection{Exact Duration = Theoretically Correct Macaulay Duration}
+
+\definition{Suppose we have a vector of cash flows $\vec{c} := [c[1], \cdots, c[J]]$, a vector of time intervals $\vec{m} := [m[1], \cdots, m[J]]$, and a "correct" yield curve $r_\infty(t, m)$ with interest rates $\vec{r} := [r[1], \cdots, r[J]]$ corresponding to the interest rates on each date. The \vocab{exact duration} is
+\[D_{exact}(\vec{c}, \vec{r}, \vec{m}) = \dfrac{\sum_{j=1}^J m[j] * c[j] * e^{-r[j] * m[j]}}{\sum_{j=1}^J c[j] * e^{-r[j] * m[j]}}\]
+}
+
+\subsubsection{Yield Duration = Approximate Macaulay Duration}
+
+\subsubsection{Price Sensitivity Duration}
+
+\section{Gordon Growth Model}
+
+Now shift our attention to assets with risky cash flows, such as stocks (equities). Consider an asset which pays $N$ positive random cash flows per year. For example, stocks pay dividends quarterly, so $N = 4$. Let these cash flows be \vocab{dividends}. Now let
+$\Delta t := \frac{1}{N}$ denote the interval between the dividends such that the paid dates are $t_0, t_0 + \Delta t, t_0 + 2 * \Delta t, \cdots, t + (N - 1)\Delta t$
+
+\begin{note}
+    The Gordon Growth Model is a simplified way of valuing risky cash flows. Like the concept of yield to maturity, it makes simple assumptions to generate formulas which can be used as approximations to provide intuition for more complicated models. Here, we will make the following assumptions:
+    \begin{enumerate}
+        \item The expected return on a risky asset is constant over time, $\bar{r}$. This expected return is generally different from the risk-free rate and varies across stocks. Perhaps "riskier" stocks have higher expected returns (or perhaps not---this is an empirically and theoretically controversial issue).
+        \item As an extension of part 1, the expected growth rate of dividends across time is also constant.
+\[E(D_{n+k} | \mathcal{H}(t_n)) = (1 + \bar{g} / N)^k * D_n\ \forall \ k \in \ZZ\]
+where here, the notation $\mathcal{H}(t_n)$ denotes all information available to all investors at time $t_n$.
+    \end{enumerate}
+\end{note}
+
+\definition{
+Let $P(t_0)$ be the present value of the stock at time $t_0$. 
+\[P(t_0) = \sum_{n=1}^\infty \dfrac{E(D_n | \mathcal{H}(t_0))}{(1 + \bar{r} * \Delta t)^n} = \sum_{n=1}^\infty \dfrac{D_0 * (1 + \bar{g} * \Delta t)^n}{(1 + \bar{r} * \Delta t)^n}\]
+}
+
+\begin{note}
+    Note that we have an infinitely positive present value if $\bar{g} >= \bar{r}$.
+\end{note}
+
+Is there a \vocab{capitalization constant} $\kappa$ corresponding to a \vocab{price-dividend ratio} $\frac{1}{\kappa}$ which makes the price of the asset equal to 
+\[P(t_0) = \sum_{n=1}^\infty \dfrac{D_0 * (1 + \bar{g} * \Delta t)^n}{\kappa}?\]
+Yes, we have $\kappa = \bar{r} - \bar{g} \implies$
+\[P(t_0) = \sum_{n=1}^\infty \dfrac{D_0 * (1 + \bar{g} * \Delta t)^n}{\bar{r} - \bar{g}}\]
+\begin{note}
+    The result is undefined or meaningless if $\bar{g} >= \bar{r}$. Note that a negative denominator actually implies an infinitely positive present value.
+\end{note}
+
+\subsection{Value of Individual Dividends}
+
+\subsection{Duration of Growth Stocks}
+
+\subsection{Implied Growth Rate}
+
+
+\section{Geometric Brownian Motion}
+
+\subsection{Normal Distributions and the Central Limit Theorem}
+
+\begin{note}
+    Before understanding geometric brownian motion, it is necessary to understand brownian motion, which first requires knowledge of normal distributions and the Central Limit Theorem.
+\end{note}
+
+\begin{theorem}
+    Central Limit Theorem states that if we have a sequence of iid random variables $Z_1, Z_2, \cdots, Z_n$ (n should be greater than 30) with mean 0 and finite variance, then the random variable
+    \[\dfrac{\sum_{i=1}^n Z_i}{\sigma * \sqrt{N}}\]
+    converges in distribution to a standard normal distribution.
+\end{theorem}
+
+\subsection{Brownian Motion}
+
+\definition{A \vocab{Brownian motion} process is a continuous-time stochastic process, which is typically denoted $B(t)$ and has two important properties
+\begin{enumerate}
+    \item The \vocab{increments} $B(t + \Delta t) - B(t)$ are normally distributed with mean 0 and finite variance $\sigma^2 * \Delta t$. The \vocab{instantaneous variance} $\sigma^2$ is constant with respect to $t$.
+    \item The increments $B(t + \Delta t) - B(t)$ are independent distributed from the history of the process up to time $t$. In other words, the path does not predict the future. Therefore, non-overlapping intervals are \vocab{uncorrelated}.
+\end{enumerate}}
+\begin{note}
+    Brownian motion processes often satisfy the property $B(0) = 0$, but in finance, we usually set $B(0)$ equal to the initial price of the asset (or the log price).
+\end{note}
+\definition{A \vocab{brownian motion with drift} is a brownian motion process in which the zero mean assumption is replaced with the assumption that the increments $B(t + \Delta t) - B(t)$ have mean $\mu * \Delta t$}
+
+\subsection{Shortfalls of Brownian Motion to Model Stock Prices}
+
+\definition{Each realization of a brownian motion process called a \vocab{sample path} is a continuous function of time with no jumps. They can be approximated with discrete time processes. Each sample path has \vocab{infinite absolute variation}}.
+
+\begin{note}
+    Brownian motion has a few shortfalls when it comes to modeling asset prices. Notably,
+    \begin{enumerate}
+        \item A brownian motion process can attain negative values, which should not be the case for stock prices.
+        \item Volatility of a stock price is constant in dollar terms, which does not make sense for all prices.
+    \end{enumerate}
+
+    Geometric brownian motion deals with both of these shortfalls.
+\end{note}
+
+\subsection{Geometric Brownian Motion}
+
+\definition{If $p(t)$ is a brownian motion process, then $P(t) = e^{p(t)}$ is a \vocab{geometric brownian motion} process}.
+
+\begin{note} Note that a geometric brownian process can never attain negative values because $\exp(x) > 0 \ \forall \ x \in \RR$.
+\end{note}
+
+\subsubsection{Percentage Volatility and Log Volatility}
+
+\definition{We define the following two volatilities for geometric brownian motion
+\[\text{log volatility} = \text{std}(\log (\dfrac{P(t + \Delta t)}{P(t)}) | \mathcal{H}(t)) = \sigma * \sqrt{\Delta t}\]
+\[\text{percentage volatility} = \text{std}(\dfrac{P(t + \Delta t) - P(t)}{P(t)} | \mathcal{H}(t)) = e^{\mu * \Delta t} * \sqrt{e^{\sigma^2 * \Delta t} - 1}\]
+}
+
+\begin{note}
+    For small $\mu$ and $\sigma^2$, the log volatilities and percentage volatilities are almost equal. For daily data, it doesn't really matter which is used, but note that log volatility can be calculated without the knowledge of $\mu$. 
+\end{note}
+
+\subsection{Convexity and Jensen's Inequality}
+
+\definition{A function is \vocab{convex} on an interval $[A, B]$ if a line segment on two points of the graph of the function lies on or above the graph of the function.}
+
+\definition{\vocab{Jensen's Inequality} states that if $f$ is a convex function and $X$ is a random variable then
+\[E(f(x)) \geq f(E(x))\]}
+
+\definition{A function $g$ is \vocab{concave} if $-g(x)$ is convex.}
+
+The idea of convexity and concavity are very important in many finance applications.
+\begin{enumerate}
+    \item Convexity is often used in options pricing
+    \item Concave functions are used to model risk aversion on the part of investors and therefore to quantify by how much the expected return on risky assets exceeds the expected return on safe assets.
+    \item The log function is concave and the exp function is convex, both of which are frequently used in finance.
+\end{enumerate}
+
+\subsubsection{Mean of Geometric Brownian Motion}
+
+Measuring the mean of geometric Brownian motion raises issues relate to convexity. Note that $P(t) = e^{p(t)}$ is a convex function because $e^x$ is convex. Therefore, $P(t)$ is a convex function of $p(t)$ and that makes $\frac{P(t + \Delta t)}{P(t)}$ a convex function of $p(t + \Delta t) - p(t)$ as 
+\[\frac{P(t + \Delta t)}{P(t)} = p(t + \Delta t) - p(t)\]
+Jensen's Inequality shows that
+\[E(\frac{P(t + \Delta t)}{P(t)}) \geq e^{E(p(t + \Delta t) - p(t))}\]
+
+\subsection{Risk Premium and Sharpe Ratio}
+
+\definition{Suppose a stock has a continuously compounded expected return $\bar{r} = r_f + \pi$, where $r_f$ is the risk free rate and $\pi$ is the risk premium. Note that the risk free rate is observed bu the risk premium is not. The true \vocab{Sharpe Ratio} is defined as 
+\[\text{Sharpe Ratio} = \frac{\bar{r} - r_f}{\sigma} = \frac{\pi}{\sigma}\]
+}
+Note that if $p(t)$ is a brownian motion with drift with mean $\mu$ and variance $\sigma^2$, then 
+\[E(\frac{P(t + \Delta t)}{P(t)}) = e^{(\mu + \sigma^2/2) * \Delta t}\]
+Recall that continuously compounded expected returns of a stock modeled by $P(t)$ is
+\[e^{\bar{r} * \Delta t} \implies \bar{r} = \mu + \sigma^2/2 \implies \mu = \bar{r} - \sigma^2/2\]
+
+\section{Growth-Optimal Portfolio}
+
+This section covers why and how some properties of Geometric Brownian Motion confuses finance researchers. 
+
+\subsection{Mean and Median Returns}
+
+\begin{example}
+    Consider an investment that follows a random walk such that half the time the price doubles, and half the time the price halves. $E(X) = 0.25$. 
+
+    Approximately half of the sample paths have returns less than 0, and approximately half of the sample paths have returns greater than 0. The puzzle is that, although the expected return of one day is 0.25, half of all sample paths have actual return less than 0.
+
+    \begin{proof}[Solution]
+        The mathematical explanation for the puzzle is related to the  $\sigma^2/2$
+  term that must be subtracted from the mean when simulating a Brownian motion which will be converted into a geometric Brownian by the exponentiation. The convexity of the exp
+  function makes the median different from the mean (due to Jensen's inequality).
+    \end{proof}
+
+    Intuitively, consider that the right tail of an exponential function is higher than the rest of the function. Most of the expected value comes from the right end of the distribution, and thus the mean is greater than the median. 
+\end{example}
+
+\subsection{The Limit of Geometric Brownian Motion}
+
+As the number of periods $m$ becomes very large, almost all of the expected value comes from a very small percentage of the good outcomes.
+
+\subsection{Practical Applications}
+
+\subsection{Internal Rate of Return}
+
+\section{Example Midterm Questions}
+
+\begin{enumerate}
+    \item Jensen’s inequality says that the continuously-compounded yield to maturity on a bond is always less than the bond-equivalent yield to maturity.
+\begin{proof}[Solution]
+    
+\end{proof}
+\end{enumerate}
+
+\end{document}

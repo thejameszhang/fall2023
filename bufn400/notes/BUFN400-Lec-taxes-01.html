@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BUFN400-Lec-Portfolio_Theory-03</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>BUFN400-Lec-taxes-01</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7482,322 +7482,16 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Lecture-Note:-Portfolio-Theory">Lecture Note: Portfolio Theory<a class="anchor-link" href="#Lecture-Note:-Portfolio-Theory">¶</a></h1><h2 id="By-Albert-S.-(Pete)-Kyle">By Albert S. (Pete) Kyle<a class="anchor-link" href="#By-Albert-S.-(Pete)-Kyle">¶</a></h2><h2 id="BUFN400-Fall-2022---University-of-Maryland">BUFN400 Fall 2022---University of Maryland<a class="anchor-link" href="#BUFN400-Fall-2022---University-of-Maryland">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Risk-Aversion-and-Expected-Utility">Risk Aversion and Expected Utility<a class="anchor-link" href="#Risk-Aversion-and-Expected-Utility">¶</a></h1><p>It is generally recognized that investors <strong>prefer more to less</strong> but are <strong>risk averse</strong>.  Intuitively, this means that investors like a higher mean and a lower variance on portfolio returns. To model this tradoff between risk and return more scientifically, economists use the concept of <strong>expected utility</strong>. Economists assume that investors maximize the expected utility of their wealth, $\mathrm{E}[u(W)]$. Preferring more to less makes the utility function <strong>monotonically increasing</strong>. Risk aversion makes the utility function <strong>concave</strong>.</p>
-<p>There is a huge amount of finance and economics research relating to modeling risk aversion using utility functions.  Here are some issues:</p>
-<ol>
-<li><p>Even if the expected return on an investment is infinite, expected utility may be finite. This relates to the famous <strong>St. Petersburg Paradox</strong> (google it!).</p>
-</li>
-<li><p>Expected utility gives the same implications is the utility function is subjected to a monotonically increasing linear transformation: maximizing $u(W)$ has the same solution as maximizing $a_0 + a_1 \cdot u(W)$ if $a_1 &gt; 0$.</p>
-</li>
-<li><p>If $W$ is wealth, a quadratic utility function of the form $u(W) = W - \rho \cdot W^2$ is analytically tractable, generates <strong>mean-variance</strong> preferences, captures risk aversion with the squared term, but is not monotonically increasing for all values of wealth. The ** marginal utility of wealth** (derivative $u'(W)$) is negative for large values of wealth.</p>
-</li>
-<li><p>A popular choice is the <strong>exponential utility</strong> function $u(W) = -\exp (-\rho \cdot W)$. This utility functions has several interesting properties: (A) Utility is finite even if wealth is negative. (B) If wealth is normally distributed, maximizing this utility function is equivalent to maximizing $\mathrm{E}[W] - \rho \cdot \mathrm{var}[W]$. (C) Unrealisitically, investors have <strong>constant absolute risk aversion</strong> in the sense that adding a constant to wealth does not affect investments in risky assets.</p>
-</li>
-<li><p>Popular utility functions of the form $u(W) = \frac{W^{1-\rho} - 1}{1-\rho}$ are called <strong>power utility</strong>. These utility functions have <strong>constant relative risk aversion</strong>, which means that demand for risky assets is constant as a proportion of wealth. A higher value of $\rho$ implies greater risk aversion. Wealth is not allowed to be negative; this implies negatively infinite utility for negative wealth. Utility can be negative if $\rho &gt; 1$; the minimum value for utility is zero if $0 &lt; \rho &lt; 1$. Risk aversion of $\rho = 0$ implies <strong>risk neutrality</strong>, which mean investors simply maximize expected return, subject to a constraint that wealth cannot be negative.</p>
-</li>
-<li><p>When $\rho \rightarrow 1$, it can be shown that power utility becomes equivalent to log utility. This is a very popular utility function, one we shall look at in detail.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Portfolio-problem">Portfolio problem<a class="anchor-link" href="#Portfolio-problem">¶</a></h1><p>Consider a simple portfolio problem in which an investor invests a fraction of wealth $x$ in a risky asset with gross return $R$ and $1-x$ in a safe asset with return $R_f$. The portfolio return is $(1-x) \cdot R_f + x \cdot R$. If initial wealth is $W_0$, ex post wealth can be written $W_1 = W_0 \cdot \bigl( (1-x) \cdot R_f + x \cdot R \bigr)$. The investor chooses $x$ to solve</p>
-<p>$$
-\max_{x} \; \textrm{E} \Bigl[ \textrm{u} \Bigl( W_0 \cdot \bigl( R_f + x \cdot (R - R_f) \bigr) \Bigr) \Bigr].
-$$</p>
-<p>With constant relative risk aversion, it can be shown that $W_0$ factors out of the problem, making it easier to solve for $x$, which is not a function of initial wealth $W_0$ in this case.</p>
-<p>The above optimization problem assumes that the investor makes one investment decision and does not change it over time.  In practice, investors change their decisions over time, using a <strong>dynamic trading strategy</strong>. This is important because investors may change their investment holding over time for at least two reasons:</p>
-<ol>
-<li><p>If investors target percentage holdings in various assets, say 60 percent stocks and 40 percent bonds, the actual holdings need to be <strong>rebalanced</strong> if asset prices change. For example, if stocks rise and bonds fall, an investor who initially held 60 percent stocks and 40 percent bonds will have more than 60 percent in stocks and less than 40 percent bonds after the price changes. The investor will need to sell stocks and buy bonds to <strong>rebalance</strong>.</p>
-</li>
-<li><p>Investors may change their estimates of expected returns on various assets over time as new information comes into the market. This requires a <strong>dynamic trading strategy</strong>.</p>
-</li>
-</ol>
-<p>There are two ways to deal with thes issue:</p>
-<ol>
-<li><p>Investors can delegate trading to an asset manager. One popular way to do this is with <strong>mutual funds</strong> and <strong>exchange traded funds</strong> (<strong>ETFs</strong>). For example, <strong>target date retirement funds</strong> automatically rebalance between stocks and bonds over time, without requiring reoptimization by the investor. <strong>Leveraged ETFs</strong> are speculative instruments which allow leverage on both the long and short sides, such as 200 percent long stocks (and 100 percent short a risk-free asset) or 100 percent short stocks (and 200 percent long the risk-free asset).</p>
-</li>
-<li><p>The investor can reoptimize the portfolio over time.  This creates a potentially difficult optimization problem in which the investor must take into account at date $t$ how choices are going to  be made in the future. A great deal of finance research addresses this issue using <strong>dynamic programming</strong>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Log-Utility-with-Geometric-Brownian-Motion">Log Utility with Geometric Brownian Motion<a class="anchor-link" href="#Log-Utility-with-Geometric-Brownian-Motion">¶</a></h1><p>These issues can be dealt with in a simpler way when the investor has log utility.</p>
-<p>With log utility, a dynamic optimization problem separates itself additively into separate subproblems.  For example, suppose there are two time intervals $\Delta t_1$ and $\Delta t_2$, with risky returns $R_1$ and $R_2$. Log utility separates additively in the following way:</p>
-<p>$$
-\begin{multline}
-\log \Bigl( W_0 \cdot \bigl( R_f + x_1 \cdot (R_1 - R_f) \bigr) \cdot \bigl( R_f + x_2 \cdot (R_2 - R_f) \bigr) \Bigr) \\
-= \log W_0 + \log \bigl( R_f + x_1 \cdot (R_1 - R_f) \bigr) 
-+ \log \bigl( R_f + x_2 \cdot (R_2 - R_f) \bigr).
-\end{multline}
-$$</p>
-<p>Because of the additive separability, there is no interaction between the investment solutions in different subperiods: The investment performance in the first period has no effect on the optimal portfolio choise in the second period.  This is not true of other utility functions.</p>
-<p>The portfolio problem simplifies even further when the risky asset's cumulative return follows geometric Brownian motion. With a continuous process, the investor can rebalance as frequently as he wants.  This is an important issue. If the investor cannot rebalance, the optimization problem with log utility can be written</p>
-<p>$$
-\log (W_0) + \max_{x} \textrm{E} \left[ \log \bigl( R_f + x \cdot (R - R_f) \bigr) \right].
-$$</p>
-<p>If the asset returns follows geometric Brownian motion, the investor might consider using leverage by choosing $x &gt; 1$ if expected returns are large enough. Unfortunately, this will not work because it is always possible with geometric Brownian motion to have a terrible outcome in which returns are so bad that wealth becomes negative and therefore utility becomes negatively infinite.</p>
-<p>To solve this problem, the investor can rebalance the portfolio when returns are such that the actual portfolio weight $x$ is not close enough to the actual target.  As an approximation to rebalancing at random intervals, finance researchers assume that the investor rebalances at regularly spaced intervals which are close together, keeping open the possibility of rebalancing more frequently in the very rare cases in which prices change substantially over a very short period of time. With geometric Brownian motion, large changes over short periods of time are very rare because geometric Brownian motion is a <strong>diffusion process</strong> with <strong>continuous sample paths</strong> and <strong>thin tails</strong> which are approximately normally distributed.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Taylor-series-expansion">Taylor series expansion<a class="anchor-link" href="#Taylor-series-expansion">¶</a></h1><p>If $\Delta t$ denotes a very short period of time, we can accurately approximate returns over an interval of length $\Delta t$ with a Taylor series approximation.  Care must be taken due to the way Brownian motion works.</p>
-<p>Let the expected return be $\mathrm{e}^{(r_f + \pi) \cdot \Delta t}$ and the volatility be $\sigma$. The actual return is $R = \mathrm{e}^{(r_f + \pi - \sigma^2 / 2) \Delta t + \sigma \cdot \Delta B}$, where the term $\sigma^2 / 2$ in the numerator adjusts for convexity of the exp function and is critical for understanding how the math of the returns works.</p>
-<p>Using the Taylor series expansion for the exp function (which actually defines the exp function), we have $\mathrm{e}^y = 1 + y + y^2/2 + y^3/6 + ...$. To apply this to returns over very short intervals of time, the idea is to keep terms of <strong>order $\Delta t$</strong> but drop terms of higher order.  It is important to keep in mind that $\Delta B^2$ is a term of order $\Delta t$ because the Brownian motion definition of $B(t)$ implies $\mathrm{E}[\Delta B^2] = \Delta t$. Terms with factors like $\Delta t \cdot \Delta B$ or $ \Delta B^3$ become small relative to the <strong>first-order</strong> terms (of order $\Delta t$) and can be dropped.  Therefore the Taylor series approximation to returns is</p>
-<p>$$
-R = 1 + (r_f + \pi - \tfrac{1}{2} \cdot \sigma^2) \cdot \Delta t + \sigma \cdot \Delta B + \tfrac{1}{2} \cdot \sigma^2 \cdot \Delta B^2.
-$$</p>
-<p>The last term is from the $y^2/2$ the term in the Taylor series expansion.</p>
-<p>Now consider the portfolio return over a very short period of time. We can use a Taylor expansion of the log function $\log (1+y) = 1 + y - y/2 + y/3 - ...$ to obtain (using $r_f := R_f - 1$)</p>
-<p>$$
-\log \bigl( R_f + x \cdot (R - R_f) \bigr) 
-= r_f \cdot \Delta t 
-+ x \cdot \bigl( (\pi - \tfrac{1}{2} \cdot \sigma^2) \cdot \Delta t + \sigma \cdot \Delta B + \tfrac{1}{2} \cdot \sigma^2 \cdot \Delta B^2) \bigr)
-- \tfrac{1}{2} \cdot x^2 \cdot \sigma^2 \cdot \Delta B^2.
-$$</p>
-<p>Now take the expected value of the right side of the above equation, using $\mathrm{E}[\Delta B] = 0$ and $\mathrm{E}[\Delta B^2] = \Delta t$ to obtain</p>
-<p>$$
-\mathrm{E} \left[ \log \bigl( R_f + x \cdot (R - R_f) \bigr) \right]
-= \left( r_f 
-+ x \cdot  \pi - \tfrac{1}{2} \cdot x^2 \cdot \sigma^2 \right) \cdot \Delta t.
-$$</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-for-self-study">Exercise for self-study<a class="anchor-link" href="#Exercise-for-self-study">¶</a></h2><ol>
-<li><p>Verify each step in the application of Taylor series expansion and understand the finance intution of what is going on.</p>
-</li>
-<li><p>Verify why so many terms nicely cancel in the equations at the end of the previous cells.</p>
-</li>
-<li><p>Receive extra credit for finding and fixing my many typos.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Portfolio-optimization">Portfolio optimization<a class="anchor-link" href="#Portfolio-optimization">¶</a></h1><p>The simple expression $\pi \cdot x - \tfrac{1}{2} \cdot x^2 \cdot \sigma^2$, which multiplies $\Delta t$, can be thought of as a continuous-time implementation of the optimal portfoli objective for a problem with log utility and geometric Brownian motion.</p>
-<p>The first-order condition for the problem</p>
-<p>$$
-\max_x [x \cdot \pi - \tfrac{1}{2} \cdot x^2 \cdot \sigma^2 ] 
-$$</p>
-<p>is $\pi - x \cdot \sigma^2 = 0$, so the solution for the optimal portfolio is</p>
-<p>$$
-x = \frac{\pi}{\sigma^2}. 
-$$</p>
-<p>This solution represents an intuitive and simplistic tradeoff between mean and variance.</p>
-<p>Note that this is the <strong>growth-optimal</strong> portfolio discussed in a previous note.  We thus have the result that log utility investors choose the growth-optimal portfolio, which maximizes internal rate of return.</p>
-<p>The solution to this problem generalizes in various ways:</p>
-<ol>
-<li><p>Suppose the expected risk premium $\pi$ and the variance $\sigma^2$ change over time, perhaps randomly, but returns still have the <strong>diffusion</strong> property that there are no jumps in prices and returns are <strong>locally</strong> approximately normally distributed.  The the solution still holds. Of course, in addition to rebalancing, the investor also changes holdings over time due to changes in mean $\pi$ and variance $\sigma^2$.  It can be shown that continuous updating in this way also leads to a growth-optimal portfolio.</p>
-</li>
-<li><p>There is a finance literature on applying a result like this to utility functions with constant relative risk aversion. Although there are some complexities here, we can think of
-$$
-x = \frac{\pi}{\rho \cdot \sigma^2} 
-$$
-as being a reasonable approximation to a solution appropriate for asset management.</p>
-</li>
-<li><p>If prices have jumps, the solution above is not perfectly accurate. Practitioners often ignore this and use the approximate solution anyway.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Squared-Sharpe-ratio">Squared Sharpe ratio<a class="anchor-link" href="#Squared-Sharpe-ratio">¶</a></h1><p>If the optimal solution $x = \frac{\pi}{\rho \cdot \sigma^2} $ is plugged into the objective $x \cdot \pi - \tfrac{1}{2} \cdot \rho \cdot x^2 \cdot \sigma^2$, the optimzed value of the objective is</p>
-<p>$$
-\frac{\pi^2}{2 \cdot \rho \cdot \sigma^2} = \frac{(\text{Sharpe ratio})^2}{2 \cdot \rho} , 
-\qquad \text{where} \qquad
-\text{Sharpe ratio} = \frac{\pi}{\sigma}.
-$$</p>
-<p>With log utility, we can interpret this result as saying that being able to trade to capture an expected risk premium results in a utility the same as investing in a risk-free assset which has a return of $r_f + \frac{\pi^2}{2\cdot \sigma^2}$ instead of only $r_f$.</p>
-<p>The squared Sharpe ratio also expresses nicely the intuition that shorting an asset when $\pi$ is negative generates the same value as going long when $\pi$ is positive, assuming the absolute value of $\pi$ is the same.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id=""><a class="anchor-link" href="#">¶</a></h1><p>Two correlated risky assets</p>
-<p>Now consider a more general portfolio problem with two risky assets. Let us call one asset a "market index" and think of the other asset as having some <strong>idiosyncratic risk</strong>. Denote the return on the market index as $R_M$ and the return on the other asset as $R_A$.</p>
-<p>Over a short period of time $\Delta t$, the market index may follow geometric Brownian and have return</p>
-<p>$$
-\mathrm{e}^{(r_f + \pi - \sigma^2/2) \cdot \Delta t + \sigma_M \cdot \Delta B_M}
-$$.</p>
-<p>The other asset may also follow geometric Brownian motion</p>
-<p>$$
-\mathrm{e}^{(r_f + \alpha + \beta \cdot \pi - \beta^2 \cdot \sigma_M^2/2 - \sigma_A^2 / 2) \cdot \Delta t + \beta \cdot \sigma_M \cdot \Delta B_M + \sigma_A \cdot \Delta B_A}
-$$,</p>
-<p>where $B_M(t)$ and $B_A(t)$ are independently distributed.</p>
-<p>If the returns are exactly geometric Brownian motions, a good way to handl the relationship betweeen the two assets is to regress the log return on log returns to obtain</p>
-<p>$$
-\log R_A - r_f \cdot \Delta t = \alpha + \left( \beta \cdot (1 - \beta) \cdot \sigma_M^2/2 - \sigma_A^2 / 2 \right) \cdot \Delta t + \beta \cdot (\log R_M - r_f) \cdot \Delta t + \sigma_A \cdot \Delta B_A.
-$$</p>
-<p>We can think of this as a theoretical linear regression with a constant term whose theoretical (true) value is $\alpha + \beta \cdot \pi + \beta \cdot (1 - \beta) \cdot \sigma_M^2/2 - \sigma_A^2 / 2) \cdot \Delta t$, and explanatory variable $\log (R_M - r_f \cdot \Delta t)$ with theoretical (true) regression coefficient $\beta$, and an error $\sigma_A \cdot \Delta B_A$.</p>
-<p>One approach to empirical estimation is to estimate this regression relationship using log returns. This approach has nice theoretical properties when the returns processes for $R_M$ and $R_A$ are exactly geometric Brownian motions because the regression variables are then exactly normally distributed.</p>
-<p>When using this approach empirically, care must be taken to subtract out the terms $\beta \cdot \pi$, $\beta \cdot (1 - \beta) \cdot \sigma_M^2/2$ and $\sigma_A^2 / 2) \cdot \Delta t$ to obtain an estimate for the actual expected return $\alpha$. It is easy to fail to make these adjustments properly (as I did in a previous lecture note), and this makes this approach error prone.</p>
-<p>In practice, both researchers and practitioners typically use the <strong>Euler approximations</strong>, which resulted from the Taylor series expansion. This approach gives us</p>
-<p>$$
-R_M = (r_f + \pi) \cdot \Delta t + \sigma \Delta B,
-\qquad
-R_A = (r_f + \alpha + \beta \cdot \pi + \beta \cdot \sigma_M \cdot \Delta B_M + \sigma_A \cdot \Delta B_A,
-$$</p>
-<p>from which we obtain the <strong>Euler approximation</strong> to the correct linear regression</p>
-<p>$$
-R_A - R_f = \alpha + \beta \cdot (R_M - R_f) + \epsilon_A,
-\qquad \text{where} \qquad
-\epsilon_A = \sigma_A \cdot \Delta B_A.
-$$</p>
-<p>This approach is not perfectly accurate:</p>
-<ol>
-<li><p>It works better $\Delta t$ represents a small amount of time. Usually, a $\Delta t$ of one day is small enough, but one month is more dubious, even if frequently used.</p>
-</li>
-<li><p>The approach may not work perfectly if $\Delta B_M$ and $\Delta B_A$ deviate substantially from a normal distribution, especially if there are jumps or extremely high volatility compressed into a short time frame.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Two-risky-assets:-Optimal-portfolio-problem">Two risky assets: Optimal portfolio problem<a class="anchor-link" href="#Two-risky-assets:-Optimal-portfolio-problem">¶</a></h1><p>With two risky assets, the portfolio mean is $r_f + x_A \cdot (\alpha_A + \beta \cdot \pi) + x_M \cdot \pi$, and the portfolio variance is $(\beta \cdot x_A + x_M)^2 \cdot \sigma^2_M + x_A^2 \cdot \sigma_A^2$.</p>
-<p>We can write the mean-variance optimization problem as</p>
-<p>$$
-\max_{x_A, x_M} \; r_f + x_A \cdot (\alpha_A + \beta \cdot \pi) + x_M \cdot \pi - \tfrac{1}{2 \cdot \rho} \cdot \left( (\beta \cdot x_A + x_M)^2 \cdot \sigma^2_M + x_A^2 \cdot \sigma_A^2 \right).
-$$</p>
-<p>It can be verified that the solution to this problem is</p>
-<p>$$
-x_A = \frac{\alpha}{\rho \cdot \sigma_A^2},
-\qquad
-x_M = \frac{\pi}{\rho \cdot \sigma_M^2} - \beta_A \cdot x_A.
-$$</p>
-<p>The intuition for this solution is simple:  Since the two risks associated with $\Delta B_M$ and $\Delta B_A$ are uncorrelated, the investor bets on both risks separately. The bet on the idiosyncratic risk $\Delta B_A$ only involves holding the asset which is not the market index.  The optimal exposure to the risk of the market index comes from both assets.  Holdings in the market index are adjusted by subtracting the exposure to the market index from the other asset.</p>
-<p>This problem generalizes easily to a model with many assets and a market portfolio. If the assets have uncorrelated idiosyncratic risks, then all of the different risks are optimized separately.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Market-efficiency-and-Capital-Asset-Pricing-Model">Market efficiency and Capital Asset Pricing Model<a class="anchor-link" href="#Market-efficiency-and-Capital-Asset-Pricing-Model">¶</a></h1><p>If $\alpha = 0$, the investor only holds the market index. This result is related to hypotheses which finance researchers and practitioners call the <strong>efficient markets hypothesis</strong> and the <strong>Capital Asset Pricing Model</strong> (<strong>CAPM</strong>).</p>
-<p>From our perspective, both of the efficient markets hypothesis and the CAPM imply that $\alpha_i = 0$ for every asset related to the market like the return $R_A$.</p>
-<p>The CAPM says that the market portfolio is <strong>mean-variance efficient</strong> in the sense that holding only the market index achieves the highest possible Sharpe ratio.</p>
-<p>In the context of the CAPM, the efficient markets hypothesis says that it is impossible to "beat the market" by investing in any asset other than the market index.  "Beating the market" means obtaining a higher Sharpe ratio using publicly available information.</p>
-<p>There is a huge amount of finance research related to the efficient markets hypothesis and the Capital Asset Pricing Model.  Here are some highlights:</p>
-<ol>
-<li><p>Some researchers believe that overall market returns can be predicted based on aggregate market statistics such as <strong>dividend yield</strong>, <strong>earnings yield</strong>, returns <strong>momentum</strong> over long (multi-year) periods, the slope of the term structure of interest rates, and possibly other macroeconomic variables.  These predictions are difficult to test econometrically because the returns history of the stock market is "only" about 100 years. Robert Shiller's Nobel award in economics is related to this research about inefficiency in the long run.</p>
-</li>
-<li><p>Researchers have found that individual stocks' returns can be predicted based on stocks' characteristics, such as <strong>size</strong>, <strong>book-to-market ratio</strong> (related to <strong>value</strong>), <strong>returns momentum</strong> (over periods of six months to one year), profitability. Eugene Fama's Nobel award in economics is related to this kind of research. One way to convery the results of this research is to define portfolios based on asset characteristics, such as (a) a zero-wealth "size" portfolio ("small-minus-big") based on having long positions in small  stocks and short positions of equal value in large stocks, with weights potentially a function of some index of size, or (b) multiple portfolios constructed from asset rands based on size deciles. This approach can also be applied to other stock characteristics, such as book-to-market ratio (long high book-to-market, short high book-to-market), momentum (long stock which have gone up recently, short stocks which have gone down recently). Fama and French have a website which makes data available for research.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Questions-for-self-study">Questions for self-study<a class="anchor-link" href="#Questions-for-self-study">¶</a></h2><ol>
-<li>Define dividend yield or earning yield as the dividends or earnings from the previous year devided by a firms market capitalization. Explain why the units of dividend yield and earnings yield are the same as the units for interest rates.</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="A-function-for-simulating-geometric-brownian-motion">A function for simulating geometric brownian motion<a class="anchor-link" href="#A-function-for-simulating-geometric-brownian-motion">¶</a></h1>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
+<h1 id="Lecture-Note:-Taxes:-ROUGH-DRAFT,-NEEDS-EDITING">Lecture Note: Taxes: ROUGH DRAFT, NEEDS EDITING<a class="anchor-link" href="#Lecture-Note:-Taxes:-ROUGH-DRAFT,-NEEDS-EDITING">¶</a></h1><h2 id="By-Albert-S.-(Pete)-Kyle">By Albert S. (Pete) Kyle<a class="anchor-link" href="#By-Albert-S.-(Pete)-Kyle">¶</a></h2><h2 id="BUFN400---University-of-Maryland">BUFN400---University of Maryland<a class="anchor-link" href="#BUFN400---University-of-Maryland">¶</a></h2><p>$\newcommand{\E}{\mathrm{E}}$
+$\newcommand{\e}{\mathrm{e}}$
+$\newcommand{\drm}{\mathrm{\, d}}$
+$\newcommand{\var}{\mathrm{var}}$
+$\newcommand{\stdev}{\mathrm{stdev}}$
+$\newcommand{\sm}{ {\scriptstyle{\text{*}}}}$
+$\renewcommand{\mm}{{\scriptsize @}}$
+$\renewcommand{\t}{^{\mathsf{T}}}$
+$\renewcommand{\comma}{\, , \,}$
+$\renewcommand{\vec}[1]{\mathbf{#1}}$</p>
 </div>
 </div>
 </div>
@@ -7806,77 +7500,46 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fgmb</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">1.00</span><span class="p">,</span> <span class="n">p0_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Simulate paths for geometric brownian motion.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#import os</span>
 
-<span class="sd">    Usage:</span>
-<span class="sd">    </span>
-<span class="sd">    mu = expected return (per year), not continuously compounded,</span>
-<span class="sd">         e.g. mu=)0.10 means 10 percent expected return.</span>
-<span class="sd">    sigma = log (Black-Scholes) volatility (annualized)</span>
-<span class="sd">    shape = (npaths, nobs), where paths = number of paths, nob = numbe of observations per path.</span>
-<span class="sd">    dt = time interval (e.g., dt = 1/12 means monthly observations)</span>
-<span class="sd">    rng = numpy random number generator, e.g. rng = np.random.default_rng(1234). </span>
-<span class="sd">    </span>
-<span class="sd">    output = n+1 x m matrix or n x m matrix, where each of the m columums is a geometric brownian motion path</span>
-<span class="sd">    starting with a value of p0. Length n or n+1 depends on whether start is included</span>
-<span class="sd">    </span>
-<span class="sd">    Notes: </span>
-<span class="sd">    </span>
-<span class="sd">    1. No default argument for rng because one generally wants to use the same rng</span>
-<span class="sd">    on different function calls to avoid creating correlated paths across different</span>
-<span class="sd">    function calls!</span>
-<span class="sd">    </span>
-<span class="sd">    2. Base time period can be anything, but would typically be annual. </span>
-<span class="sd">    The argument dt is a fraction of the based time period.</span>
-<span class="sd">    </span>
-<span class="sd">    3. The parameter mu is the mean of the gbm, not the mean of the log of the gbm!</span>
-<span class="sd">    </span>
-<span class="sd">    """</span>
-    
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span> 
-                  <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.50</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p0</span><span class="p">))</span>
-    
-    <span class="k">if</span> <span class="n">p0_first</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span> <span class="n">p0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">),</span> <span class="n">res</span><span class="p">])</span>
-        
-    <span class="k">return</span> <span class="n">res</span>    
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="c1">#import scipy.sparse.linalg</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">f_test_fgbm</span><span class="p">():</span>
-    
-    <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.12</span>
-    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.35</span>    
-    <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.00</span> <span class="o">/</span> <span class="mf">12.00</span>
-    <span class="n">nobs</span> <span class="o">=</span> <span class="mi">120</span>
-    <span class="n">npaths</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="n">p0</span> <span class="o">=</span> <span class="mf">100.00</span>
-    <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
-    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="c1">#import nbconvert</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="c1">#import math</span>
+<span class="c1">#import string</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+<span class="c1">#import io</span>
+<span class="c1">#from pprint import pprint</span>
+<span class="c1">#import numba</span>
+<span class="c1">#import numexpr</span>
 
-    <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">npaths</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
+<span class="c1">#import dataclasses</span>
 
-    <span class="n">p</span> <span class="o">=</span> <span class="n">fgmb</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p0_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    
-    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_rows'</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{:,.8f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span>
 
-    <span class="k">if</span> <span class="n">nobs</span> <span class="o">*</span> <span class="n">npaths</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">:</span>    
-        <span class="o">%</span><span class="k">timeit</span> -r 3 -n 5 temp = fgmb(mu, sigma, shape, dt, rng, p0, p0_first=True, dtype=np.float32)
-        <span class="o">%</span><span class="k">timeit</span> -r 3 -n 5 temp = fgmb(mu, sigma, shape, dt, rng, p0, p0_first=True, dtype=np.float64)
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Python version '</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Pandas version '</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'NumPy version '</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'SciPy version '</span> <span class="o">+</span> <span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'matplotlib version '</span> <span class="o">+</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="c1">#print('numba version ' + numba.__version__)</span>
 
-        <span class="o">%</span><span class="k">timeit</span> -r 3 -n 5 temp = fgmb(mu, sigma, shape, dt, rng, p0, p0_first=False, dtype=np.float32)
-        <span class="o">%</span><span class="k">timeit</span> -r 3 -n 5 temp = fgmb(mu, sigma, shape, dt, rng, p0, p0_first=False, dtype=np.float64)
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'p'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">f_test_fgbm</span><span class="p">()</span>    
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m</span><span class="si">%d</span><span class="s1">-%H%M'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Timestamp:"</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7889,11 +7552,12 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>The slowest run took 4.04 times longer than the fastest. This could mean that an intermediate result is being cached.
-159 µs ± 112 µs per loop (mean ± std. dev. of 3 runs, 5 loops each)
-134 µs ± 63 µs per loop (mean ± std. dev. of 3 runs, 5 loops each)
-57.9 µs ± 6.03 µs per loop (mean ± std. dev. of 3 runs, 5 loops each)
-69.7 µs ± 6 µs per loop (mean ± std. dev. of 3 runs, 5 loops each)
+<pre>Python version 3.8.18 (default, Sep 11 2023, 13:47:48) [MSC v.1916 64 bit (AMD64)]
+Pandas version 1.5.3
+NumPy version 1.24.4
+SciPy version 1.10.1
+matplotlib version 3.2.2
+Timestamp: 2023-1115-1350
 </pre>
 </div>
 </div>
@@ -7906,22 +7570,481 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Problem-for-self-study">Problem for self-study<a class="anchor-link" href="#Problem-for-self-study">¶</a></h2><p>(Advanced) Write a more efficient algorithm (faster) for the function <em>fgbm()</em> than what I have written above.</p>
-<p>Hint: This might be difficult because I may have written a reasonably efficient algorithm.</p>
+<h2 id="Taxes">Taxes<a class="anchor-link" href="#Taxes">¶</a></h2><p>In the field of economics, taxes are the subject matter of a field called <strong>public finance</strong>.  In the field of finance, taxes are usually studied as part of <strong>corporate finance</strong> instead of <strong>asset pricing</strong>.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Considerations:</p>
+<p>Do not tax intermediate goods.</p>
+<p>Income cannot be defined. Investment income is difficult.
+Consumption is easier.</p>
+<p>Cannot distinguish wage income from investment income.</p>
+<p>Tax to correct externalities.</p>
+<p>Different types of taxes: consumption, wages, investment income, corporate, capital gains (transactions), Pigouvian. 401-k exemptions, pension funds.</p>
+<p>Compounded taxes versus transactions taxes.</p>
+<p>Marginal investor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Economically-Efficient-Taxes">Economically Efficient Taxes<a class="anchor-link" href="#Economically-Efficient-Taxes">¶</a></h3><p>Taxes distort economic behavior.</p>
+<ul>
+<li><p>Taxes on wages encourage workers to drop out of the work force.</p>
+</li>
+<li><p>Taxes on commodities increase the price and reduce the quantity supplied and demanded at market clearing prices.</p>
+</li>
+<li><p>Taxes on wealth reduce wealth and raise interest rates.</p>
+</li>
+</ul>
+<p>Sometimes the distortions in behavior are economically efficient or intended.</p>
+<ul>
+<li><p>Taxing gasoline or coal may decrease pollutants added to the atmosphere.</p>
+</li>
+<li><p>Taxing cars may reduce congestion on highways.</p>
+</li>
+<li><p>Taxing cigarettes, alcohol, or drugs may reduce consumption and make people healthier.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Principles-for-Efficient-Taxation">Principles for Efficient Taxation<a class="anchor-link" href="#Principles-for-Efficient-Taxation">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Types-of-Taxes">Types of Taxes<a class="anchor-link" href="#Types-of-Taxes">¶</a></h3><p>Governments levy many different types of taxes:</p>
+<ul>
+<li><p>Taxes on wages or payrolls.</p>
+</li>
+<li><p>Taxes on personal "income", as defined by an accountant or by statute.</p>
+</li>
+<li><p>Taxes on "corporate profits", as defined by an acountant or by statute.</p>
+</li>
+<li><p>Taxes on specific commodities (gasoline, cigarettes, real estate).</p>
+</li>
+<li><p>Taxes on transactions, such as a capital gains tax.</p>
+</li>
+</ul>
+<p>Governments also exempt various entities from taxes levied on others.</p>
+<ul>
+<li><p>Nonprofit organizations (e.g., churches, universities) do not pay taxes on their "income" even though for-profit organizations do pay such taxes.</p>
+</li>
+<li><p>Pension funds and 401-K savings plans are exempted from taxes on "investment income".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Wealth,-cash-flow,-consumption,--income,-and-investment">Wealth, cash flow, consumption,  income, and investment<a class="anchor-link" href="#Wealth,-cash-flow,-consumption,--income,-and-investment">¶</a></h3><p>In finance and economics, <strong>wealth</strong> and <strong>cash flow</strong> are meaningful concepts:</p>
+<ul>
+<li><p><strong>Wealth</strong> can be calculated by summing up the market values of assets.  Market values may be hard to measure, but the concept of "market value" is meaningful.</p>
+</li>
+<li><p><strong>Cash flow</strong> can also be measured simply by keeping track of transactions.</p>
+</li>
+<li><p>The distinction between <strong>consumption</strong> and <strong>business expense</strong> is meaningful but hard to define precisely:</p>
+<ul>
+<li><p>Sometimes the distinction is obvious. If a business buys a boat to use for weekend entertainment, the boat is a consumption good. If a business buys a boat to ship containers across the ocean, the boat is a business expense.</p>
+</li>
+<li><p>Sometimes, the distinction is not at all obvious. Is a restaurant meal with clients to be considered consumption or a business expense? Is a laptop computer for personal consumption or for business use?  Is the cost of university tuition an investment which increases future wages or a pure consumption good?</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The concept of <strong>income</strong> may have an obvious informal meaning, but it is impossible to define in a meaningful manner using finance and economics concepts. Instead, defining income requires applying arbitrary accounting rules.</p>
+<p>Economists make distinctions between <strong>capital</strong> and <strong>labor</strong>. To a Marxist, the distinction between capital and labor is obvious:</p>
+<ul>
+<li><p>Capital is an ugly machine which alienates workers who use it in their employment.</p>
+</li>
+<li><p>Labor is unpleasant and difficult activity required to make a living.</p>
+</li>
+</ul>
+<p>For a traditional economist, capital is a way of making economic activity more productive in the future by "investing" now to improve "output" later. Unfortunately, it is difficult to measure "capital" or "investment" precisely using natural concepts from economics. This has led to a distinction between <strong>tangible capital</strong> and <strong>intangible capital</strong>. For example, investing in "knowledge" may increase future productivity, so "knowledge" might be considered a type of capital.</p>
+<p>An important distinction may be whether the "capital" can be bought or sold:</p>
+<ul>
+<li><p>Tangible capital---such as machines, vehicles, buildings, and inventories---can often be used as collateral for a loan. If the borrower defaults, this requires a clear definition of who the creditor is and how they can seize defaulted collateral.</p>
+</li>
+<li><p>Intangible capital is more difficult to use as collateral. Patents, copyrights, and trademarks may be used as collateral, but trade secrets and specialized knowledge in the minds of workers is impossible to pledge as collateral.</p>
+</li>
+<li><p>The concept of <strong>wage income</strong> is intrinsically ambiguous. The concept of <strong>payroll</strong> may have a clear definition as a cash flow paid by firms to workers. Distinguishing "payroll" from "wage income" requires making fine distinctions based on a ccounting. Should commuting costs and specialized wardrobe costs be deducted from the amount paid by an employer? If a teacher uses wage payments to buy pencils and books for students, should these costs be netted out of wages? Should the extra cost of renting and apartment or buying a home close to where a job is located be deducted from wages? Should costs of child care be deducted from wages? Defining "wage income" requires accounting rules to apply the concept in practice.  These rules can become very complicated.</p>
+</li>
+</ul>
+<p>Human capital</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Intermediaries-and-Assets">Intermediaries and Assets<a class="anchor-link" href="#Intermediaries-and-Assets">¶</a></h3><p>Intermediaries: Bank, brokerage firm, mutual fund, LLC, personal account, Limited partnership, C-corporation, pension fund.</p>
+<p>Hold financial assets at banks (cash, CDs), broker-dealers (stocks, bonds, mutual funds, ETFs), mutual fund, pension fund (stocks,  bonds, pooled investment vehicles like mutual funds, limited partnerships).</p>
+<p>Accounts at banks, mutual funds, and broker-dealers can be taxable or nontaxable (IRA, 401(k), Roth IRA).</p>
+<p>Business income from LLCs flows through to taxpayers. LLCs operate businesses and own real assets. Limited partnerships own financial assets. Nontaxable accounts do not invest in LLCs which operate businesses but do invest in limited partnerships which invest in securities.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Finance-versus-accounting">Finance versus accounting<a class="anchor-link" href="#Finance-versus-accounting">¶</a></h3><p>Concepts from finance and economics are "cash flow", "asset value", and "wealth" (defined as sum of asset values). Need "intangible assets" such as "human capital", "intellectual property", "brand value". "Tangible assets" include real estate, plants, office buildings, housing, machinery, equipment, inventories. Economists distinguish "labor" from "leisure", but what if a worker enjoys his "job" or "profession"?</p>
+<p>Economics might have theoretical concepts of capital and labor, savings and investment, but these concepts are hard to apply any any concrete manner to modern economies.  Is college tuition a form of investment? Is being a student a form of labor?</p>
+<p>Concepts from accounting and religion are "income", "capital" versus "labor", "wage income" versus "business income" or "corporate profit", "interest" versus "principle".</p>
+<p>The concept of "income" is difficult for accounts to define because the underlying economics is vague or nonexistent.</p>
+<p>Need for accruals, such as depreciation.</p>
+<p>The boundary between labor and leisure is hard to pin down. Are costs of piano lessons or golf lessons investments if the pupil plans to be a professional pianist or golfer? How about the cost of a guitar or piano? The cost of a computer for a professional gamer?</p>
+<p>Finance might try to define income as "change in wealth".  This is hard to measure if assets are hard to value. Changes in human capital, intangible assets, and illiquid real assets (20-year old crane) are hard to measure.</p>
+<p>Accountants define three levels of assets: 1. Available market prices. 2. Comparable market prices. 3. DCF model (discounted cash flow) due to no comparable market prices.</p>
+<p>It is impossible to use finance or economics to distinguish "wage income" from "business profit". Consider a law firm LLC which pays its owner a salary of 100 000 dollars, a bonus of 150 000 dollars, and distributions of profit equal to 200 000. These paymest are all fungible.</p>
+<p>Finance and economics suggest values should be indexed to inflation. Current tax systems are only partially indexed.</p>
+<p>Equity and debt</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Distinctions-which-are-hard-to-make,-relevant-for-taxes">Distinctions which are hard to make, relevant for taxes<a class="anchor-link" href="#Distinctions-which-are-hard-to-make,-relevant-for-taxes">¶</a></h3><p>Consumption versus business expense: Hard cases are meals, airplane travel to fancy conference, business-provided sports facility, company car, education expenses for employees.</p>
+<p>Interest versus principle payments on bonds: "Interest" and "principal" are accounting or religious concepts, not concepts from finance or economics. Concepts from  Finance sees promised cash flows of 10, 10, 110. Is this three 10 percent coupons and 100 principal repayment or zero coupon bond with three payments?  Tax rules need to define "interest" on zero coupon bond.  There are also issues with default and debt forgiveness.  Is "debt forgiveness" in default taxable income? (Yes).</p>
+<p>Wages, dividends, stock buybacks. Consider a small LLC owned by three investors with proportions 50 percent, 30 percent, 20 percent. The LLC might pay 100 000 dollars to these three as 50 000, 30 000, 20 000 wage income, dividends, or proportionate stock buybacks.</p>
+<p>Equity versus debt: Interest expense is tax deductible by a business, taxable when received by an investor. Dividends are not deductible by a business but are taxable to investors.  Businesses have an incentive to classify cash flows as tax-deductible interest payments rather than dividends.  Therefore, they have incentives to classify securities as debt instead of equity.</p>
+<p>Concept of "capital" is hard to pin down.  Marxists tie "capital" to machines and other tangible capital, typically used in manufacturing or farming. Economicsts define capital based on giving up value today to obtain more value in the future. This includes investment in education.
+Depreciation: "True econ</p>
+<p>Accruals versus realized cash flows: Accrued interest on a bond, partial construction of a building or airplane</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Intellectual-property">Intellectual property<a class="anchor-link" href="#Intellectual-property">¶</a></h3><p>Patents, trade secrets, copyright, trademarks, nondisclosure agreements (NDAs), no-compete agreements represent ways to create intangible capital which can be attached to a firm. Otherwise, it is either knowledge in the "public domain" or "human capital" (in the heads of employees who might leave the firm).</p>
+<p>It is hard to value professional firms, where much of the value of the business is in the heads of employees who might leave. Issue arises in law firms, accounting firms, consulting firms generally, service firms, software firms. Senior management at such firms often receives high compensation in the form of wages, bonuses, and equity claims (as "partners" who own the firm).</p>
+<p>Much of the knowledge needed to keep the firm operating efficiently is in the heads of senior employees. They receive high compensation because the firm might have difficulty operating efficiently if they leave and they might work for a set up a competing firm if they leave.</p>
+<p>Example:</p>
+<p>Software firms protect software with patents, trade secrets, copyright, NDAs, and no-compete agreements.  Also use brand name and advertising. Nevertheless, key enginerrs, sales people, and managers are compensated based on their knowledge of software base, customer base, and secret details about the firm.</p>
+<p>Asset management companies pay high compensation to key researchers, managers, and sales people.</p>
+<p>In both asset management and software, firms often have employees with specialized knowledge about specific areas. These employess might be able to leave the firm with their specialized knowledge, but the specialized knowledge might not be as valuable to a competitor as it is to the firm the employee works for.  Perhaps only a few workers understand the "big picture" well enough to be a competitive threat if they leave.  These few workers are very well paid.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Historical-taxes">Historical taxes<a class="anchor-link" href="#Historical-taxes">¶</a></h3><p>Governments historically try to tax anything which can increase government revenue. The result is that "tax collectors" are a historically hated group, taxpayers try to "cheat" or otherwise avoid paying taxes, and governments spend significant resources on compliance and tax collection.</p>
+<p>One approach is for the government to grant monopoly powers to specific firms, then charge the firms a tax (perhaps lump sum) for having the privilege of being a monopoly.  Either the government or the monopoly itself must suppress competitors. This might involve violence. Monopolies might have territories defined by geography for producing beer, importing wine, or trading stocks or commodities.  Banks can also be set up as territorial monopolies.  For example, a firm might have the monopoly privilege of proving cell-phone service, cable TV, electricity, or gas to a specific geographic area.  This may be easier to enforce which physical pipes and wires are used but is harder when services can be provided by satelite.  Organized crime operates in the same way, with territories for say drug distribution or protection rackets. In some countries, the boundary between organized crime and legitimate government are not clear.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Tax-minimization">Tax minimization<a class="anchor-link" href="#Tax-minimization">¶</a></h3><p>Strategies for tax minimization may exploit the intrinsic vagueness of accounting distinctions:</p>
+<p>Invest in nottaxable vehicles like IRA, Roth IRA, or 401(k).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Overvalued-and-Undervalued-assets-in-taxable-and-nontaxable-accounts">Overvalued and Undervalued assets in taxable and nontaxable accounts<a class="anchor-link" href="#Overvalued-and-Undervalued-assets-in-taxable-and-nontaxable-accounts">¶</a></h3><p>Buy an undervalued illiquid asset with a nontaxable vehicle while buying an overvalued asset with a taxable vehicle. Raises questions whether investment activities are arms length. Consider two companies worth 100 dollars each, owned by the same group of investors.  Get an accountant to appraise one company for 10 dollars  and the other for 190 dollars. Buy the 10 dollar company with a nontaxable account and buy the 190 dollar company with the taxable account. Suppose that ten year later, both companies have doubled in value and are worth 200 dollars. Get an accountant to appraise the company in the nontaxable account for 300 dollars. Let the company in the taxable account buy the company in the nontaxable account for 300 dollars, 100 dollars more than its "true" value. Assuming a zero interest rate, the company in the taxable account has 400 in assets and 300 in debt. It is liquidated for 100 dollars, generating a 90 dollar capital loss (45 percent of initial investment of 190 dollars) for the taxable investor. The nontaxable account has 300 dollars cash, an increase in value of 290 dollars (2900 percent).  If it is a Roth IRA, it can be liquidated for 300 dollars with no tax paid.</p>
+<p>Obviously, the government has an incentive to prevent these kinds of transactions. One way to do so is to require that tax-deferred vehicles only make small transactions in arms-length investments in liquid, publicly-traded financial instruments or investments in diversified mutual funds.</p>
+<p>An alternative approach is to require that investments be "arms-length", so that the seller of an undervalued asset and buyer of an overvalued asset have no incentive to participate in the transaction.  Such rules can be avoided by collusion among apparently arms-length buyers and sellers who are not really arms length.  For example, I might buy your overvalued asset (for my taxable account) if you sell me an undervalued asset (for my tax-deferred account).</p>
+<p>Private equity fund managers have a better ability to arrange such transactions because they have the ability to coordinate transactions among different kinds of market participants.</p>
+<p>Of course, smart investors may have private information or superior market insight which allows them to identify undervalued assets, which they have an incentive to buy into tax-deferred accounts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Buy-junk-bonds-in-tax-deferred-accounts,-zero-dividend-equity-in-taxable-accounts">Buy junk bonds in tax deferred accounts, zero dividend equity in taxable accounts<a class="anchor-link" href="#Buy-junk-bonds-in-tax-deferred-accounts,-zero-dividend-equity-in-taxable-accounts">¶</a></h3><p>Interest expense on debt is deductible from corporate profits and business income taxes. Taxes on business income and corporate profits can therefore be reduced by issuing large amounts of debt at high interest rates.</p>
+<p>A corporate can buy back its shares in the market, financing the purchase with debt.  If the company has a lot of debt outstanding, the interest rate on the debt can be very high due to default risk. These high-yield bonds are often called <strong>junk bonds</strong>. The combination of large amounts of debt and high interest rates generates large tax deductions from interest expense.  These deductions can be so large that taxable income is driven to zero.</p>
+<p>Now the junk bonds can be purchased by a tax-deferred investor. This investor makes a return on the junk bonds without paying more in taxes.</p>
+<p>In general, when interest rates are high, firms gain more from issuing large amounts of debt.  Furthermore, there is an advantage to putting the debt into tax-deferred vehicles.</p>
+<p>What does the firm do with the cash procedes from issuing debt? While it can make investments, it may also return the cash to shareholders. If it pays dividends, the dividends may be taxable to the owners of the shares. Instead, the firm might buy back its own shares. If this is not taxable, this is a more tax efficient way to return cash to shareholders than paying cash dividends.  If the government prevents stock buybacks or taxes them, the firm might acquire other firms outstanding equity for cash.  This returns cash to the shareholders of the acquired firm.   These shareholders might have to pay capital gains taxes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Trapped-equity">Trapped equity<a class="anchor-link" href="#Trapped-equity">¶</a></h3><p>Some politicians (particularly on the left) want to discourage corporations from returning cash to shareholders so that they will make real investments with the cash instead.  This can be accomplished by levying high taxes on dividends, stock buybacks, and cash acquisitions of the equity in other companies.</p>
+<p>This view conflicts with another view (both on the left and right) that some corporate CEOs want to build gigantic empires, even if the investments which result in these empires are unproductive.</p>
+<p>A related view (particularly on the right) is that firms with unproductive investments should return cash to shareholders so that the shareholders can invest the cash in more productive investments.</p>
+<p>IPOs, which involved stock purchases by investors, have the effect of putting more cash into the corporate sector. Many people believe that such cash flows into productive investments which create "economic growth" and "jobs". The asset pricing literature doubts this to the extent that it finds returns on IPOs, after the first day or so of trading, to be mediocre.</p>
+<p>At any rate, if cash flows into firms through IPOs but has difficulty flowing out due to taxes on dividends or stock buybacks or prohibitions on acquisitions, then equity becomes "trapped" in the corporate sector. This will tend to result in low stock prices and tend to discourage IPOs. If acquisitions are allowed but dividends and stock buybacks are taxed at high rates, firms with cash flows which they cannot invest productively will engage in acquisitions. This will have a tendency to make large firms larger and small firms disappear through acquisitions if large firms have a lot of excess cash, which is likely to be the case since firms become large by being profitable.</p>
+<p>Of course, people on the left will say that large profitable firms should return cash by paying workers higher wages.  People on the right will argue that this will lower returns on equity, discourage investment (particularly IPOs), and make the economy functionless efficiently.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Exploit-distinction-between-business-expense-and-personal-consumption">Exploit distinction between business expense and personal consumption<a class="anchor-link" href="#Exploit-distinction-between-business-expense-and-personal-consumption">¶</a></h3><ol>
+<li><p>Become a "contractor" rather than "employee": Deduct from income costs of travel for work (car mileage), equipment (laptop), home office (remodeling den into office, rent, buying furniture, heating, utilities).</p>
+</li>
+<li><p>Classify expenditures whihc might involve personal "consumption value" or "pleasure" as business expenses: restaurant meals (now 50-50), private airfare costs, fancy yacht designed to impress customers, Malcolm Forbes hot-air balloon, club membership, business conference in vacation resort, educational expenses for children of employees, company fitness center.  What about medical expenses?</p>
+</li>
+</ol>
+<p>Move business activity to locations where taxes are low:</p>
+<ol>
+<li><p>Reside in Florida or Texas (low state income taxes) rather than California or New York (high state income taxes). Perhaps work at a Florida or Texas home for a company with an "office" in Florida or Texas.</p>
+</li>
+<li><p>Move business activity and book profits in foreign <strong>tax havens</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Formulas-for-investment-strategies">Formulas for investment strategies<a class="anchor-link" href="#Formulas-for-investment-strategies">¶</a></h2><p>Suppose you earn wages $w$ today. If you consume now, you can purchase $w \sm (1 - \tau_{w0})$, where $\tau_{w0}$ is the tax on wage income today.</p>
+<p>If you invest in a regular IRA or 401(k), which earns an internal rate of return $r$ for period of time $T$, you earn returns tax free but pay a tax on "wage" income when you realize the investment and spend it. The amount your can spend at date $T$ is</p>
+<p>$$
+w \sm \e^{r \sm T} \sm (1 - \tau_{wT}),
+$$</p>
+<p>where $\tau_{wT}$ is the tax rate on wage income at date $T$.</p>
+<p>If you invest in a Roth IRA, you pay tax now but do not pay tax when you spend the IRA in the future.  So you consume</p>
+<p>$$
+w \sm (1 - \tau_{w0}) \sm \e^{r \sm T},
+$$</p>
+<p>Obviously, if $\tau_{w0} &lt; \tau_{wT}$ (i.e., you expect tax rates to rise in the future), then it is more advantageous to pay the lower tax today by investing in a Roth IRA.</p>
+<p>With both regular and roth IRAs, the security returns themselves are not taxed, regardless of whether they are interest, dividends, or capital gains.  By contrast, if you invest in a taxable account, your wage income is taxed, then your nominal returns are also taxed.</p>
+<p>For example, if you invest in a money market account earning rate $r_f$, the amount you can consume at date $T$ is</p>
+<p>$$
+w \sm (1 - \tau_{w0}) \sm \e^{(1 - \tau_I) \sm r \sm T}.
+$$</p>
+<p>The continuous taxation of interest income makes a big difference.  Suppose $r = 7$ percent and $T = 30$ years.  The rule of 70 (or 72) says that your investment doubles about every 10 years because $7 \sm 10 = 70$, so the investment doubles 3 times over 30 years. Before taxes, one dollar grows to 8 dollars. Suppose the tax rate on interest income is $40$ percent. Then the after-tax return $(1 - \tau_I) \sm r$ is $(1 - 0.40) \sm 7 = 4.2$ percent per year. Over 30 years, $4.2 \sm 30 = 126 &lt; 140 = 70 \sm 2$, so the investment does not even double twice.</p>
+<p>Here are exact calculations:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="mf">100.00</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">tau_w0</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">tau_wt</span> <span class="o">=</span> <span class="mf">0.40</span>
+<span class="n">tau_i</span> <span class="o">=</span> <span class="mf">0.40</span>
+
+<span class="n">fv_no_taxes</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">rf</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">fv_401k</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">rf</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tau_wt</span><span class="p">)</span>
+<span class="n">fv_roth</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tau_w0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">rf</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> 
+<span class="n">fv_taxable</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tau_w0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tau_i</span><span class="p">)</span> <span class="o">*</span> <span class="n">rf</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">fv_no_taxes</span><span class="w"> </span><span class="si">= }</span><span class="se">\n</span><span class="si">{</span><span class="n">fv_401k</span><span class="si">=}</span><span class="se">\n</span><span class="si">{</span><span class="n">fv_roth</span><span class="si">=}</span><span class="se">\n</span><span class="si">{</span><span class="n">fv_taxable</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>fv_no_taxes = 816.616991256765
+fv_401k=489.970194754059
+fv_roth=571.6318938797355
+fv_taxable=246.77950411557677
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Equity-securities">Equity securities<a class="anchor-link" href="#Equity-securities">¶</a></h3><p>Now consider investing in an equity security which has a dividend yield of $y_d$, which are taxed at rate $\tau_d$. Let $r_e$ denote the rate at which the equity appreciates, which includes both dividends and capital appreciation. Suppose dividends are reinvested in the same equity security. Taxing dividends lowers the equity return from $r_e$ to $r_e - \tau_d \sm y_d$.  (Why?)</p>
+<p>When the equity securities are sold, the investor pays a capital gains tax at rate $\tau_g$ on the difference between the amount invested and the value of the sale. The capital gain is the difference between the sales price of the security and the tax <strong>basis</strong>, which is defined as the nominal amount invested in the security. In addition to the one dollar investment at the initial date $t=0$, we must also calculate the value of the reinvested dividends.  At date $t$, the one dollar has grown to $\e^{r_e \sm t}$ dollars before tax and $\e^{r_e - \tau_d \sm y_d}$ after the dividend tax. The after-tax dividend reinvested in the equity is $(1 - \tau_d) \sm y_s \sm \e^{r_e - \tau_d \sm y_d} \sm \drm t$. The tax basis at date $T$ is therefore</p>
+<p>\begin{align}
+\text{Basis} &amp;= 1 + \int_{t=0}^{T} \; (1 - \tau_d) \sm y_d \sm \e^{(r_e - \tau_d \sm y_d) \sm t} \; \drm t \\
+&amp;= 1 + \frac{(1 - \tau_d) \sm y_d}{r_e - \tau_d \sm y_d} \sm \left( \e{(r_e - \tau_d \sm y_d) \sm T} - 1 \right).
+\end{align}</p>
+<p>Since a one dollar investment has a future value of</p>
+<p>$$
+\text{FutureValue} := \e^{(r_e - \tau_d \sm y_d) \sm T},
+$$</p>
+<p>the capital gains tax on an initial investment of one dollar is</p>
+<p>\begin{align}
+\text{CapitalGainsTax} &amp;= \tau_g * ( \text{FutureValue} - \text{Basis} ) \\ 
+&amp;= \tau_g \sm \left( \e^{(r_e - \tau_d \sm y_d) \sm T} - \left( 1 + \frac{(1 - \tau_d) \sm y_d}{r_e - \tau_d \sm y_d} \sm \bigl( \e^{(r_e - \tau_d \sm y_d) \sm T} - 1 \bigl) \right) \right)
+\end{align}</p>
+<p>The future after-tax value of one initial dollar invested is</p>
+<p>$$
+\text{FutureAfterTaxValue} = \text{FutureValue} - \text{CapitalGainsTax}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Accounting">Accounting<a class="anchor-link" href="#Accounting">¶</a></h3><p>Accounts like to use <strong>GAAP</strong> accounting (Generally Accepted Accounting Principles), which in theory do not vary from one accounting firm to another and can be objectively verified.  Tax authorities might deviate from GAAP accounting for the purpose of defining taxes.  This requires firms to prepare two sets of financial statements, one for the tax authorities and another for GAAP. Here we will ignore this difference.</p>
+<p>Accountants distinguish between <strong>Income Statements</strong> and <strong>Balance Sheets</strong>. Conceptually, income statements describe flows (over time) at time intervals like quarters or years.  Balance sheets are snapshots of the <strong>book values</strong> of assets taken at points in time.</p>
+<p>Economists have historically argued that market values should be used instead of book values, to provide a more accurate picture of the economic condition of the firm.  Accountants have historically opposed using market values.  Nevertheless, in recent decades, GAAP accounting has incorporated more and more information based on market values.</p>
+<p>When market value are used, accountants apply the concept of <strong>fair value</strong>. Fair value is defined, approximately, as a the price at which a willing buyer would transact with a willing seller if neither were under time pressure to transact.  A <strong>fire sale</strong> is the opposite scenario, in which the seller is under pressure to liquidate quickly but the buyer is not. <strong>Fair value</strong> classifies assets and liabilities into three groups:</p>
+<ol>
+<li><p>Liquid assets with active markets, such as actively traded stocks and commodities.</p>
+</li>
+<li><p>Assets where comparable assets have liquid markets and the comparable assets can be used to impute a value.</p>
+</li>
+<li><p>Illiquid assets without comparables, where <strong>discounted cash flow</strong> models are used to value the assets.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Corporate-Taxes-and-Cash-Flow">Corporate Taxes and Cash Flow<a class="anchor-link" href="#Corporate-Taxes-and-Cash-Flow">¶</a></h3><p>Corporations pay a corporate profits tax. Let $\tau_c$ denote the corporate tax rate.</p>
+<p>Defining the "income" to be taxed requires concepts from accounting. "Income" is different from the finance concept of "cash flow". The main difference between "income" and "cash flow" relates to <strong>accruals</strong>, which are non-cash-flow accounting items which draw a difference between income and cash flow.  An important accrual is <strong>depreciation</strong>, which we discuss here.</p>
+<p>In general, when a firm makes investments, the cost of the investment is not deducted from income immediately but is instead deducted gradually over time as the investment depreciates. <strong>Depreciation</strong> schedules are complicated (unnecessarily complicated, in my opinion). They may or may not conform closefly to what an economist might call "true economic depreciation". For example, land has no deprecitaion, structures may be depreciated over time periods like 20-30 years, equipment over 5-10 years. Some items may be "expensed" instead of "capitalized" and depreciated. Depreciation schedules are often nonlinear, although <strong>straight line</strong> depreciation (e.g., 20 percent per year for 5 years) has historically been typical. Since each asset has its own complicated depreciation rules, implementing depreciation requires a great deal of accounting memory.</p>
+<p>For analytical tractability, we will pretend that depreciation is a fixed fraction of the <strong>book value</strong> (nominal value of investment which has not been depreciated yet) of the assets, which we denote $\delta$. This autoregressive approach was historicaly used hundreds of years ago because it is easy to implement and requires little memory.</p>
+<p><strong>EBITDA</strong> (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a crude cash flow measure defined as</p>
+<p>$$
+\text{EBITDA} := \text{Revenues} - \text{OperatingCosts}
+$$</p>
+<p>Here $\text{OperatingCosts}$ includes costs of goods sold, wages, and management costs of running a business but excludes $Investment$ (capital expenditures, or <strong>Capex</strong>), tax payments, interest and principal payments on debt, and dividends. Taxable income subtracts from $\text{EBITDA}$ depreciation and interest on debt. Symmetrically, it adds interest earned on cash.  We can define taxable income as</p>
+<p>$$
+\text{TaxableIncome} := \text{EBITDA} - \delta \sm \text{BookValueOfCapital} - r_d \sm \text{Debt} + r_f \sm \text{Cash}.
+$$</p>
+<p>The book value of capital is updated from period to period by subtracting depreciation and adding new investment:</p>
+<p>$$
+\Delta \text{BookValueOfCapitaal} := \text{Investment} - \text{Depreciation}. 
+$$</p>
+<p>We will pretend that corporate profits tax paid is a fixed proportion of corporate profits, which we denote $\tau_c$. In practice, the corporate tax rate is <strong>progressive</strong> (i.e., higher <strong>marginal rate</strong> on higher profits) and includes taxes at both the international, federal, and state levels.</p>
+<p>$$
+\text{Tax} := \tau_c \sm \text{TaxableIncome}
+$$</p>
+<p>To obtain cash flow from taxable income, we need to adjust for accruals which are included in taxable income but are not cash flows (i.e., depreciation), and we need to adjust for cash flows which are not included in taxable income (i.e., investment, taxes, change in debt, dividends, and stock repurchases).  We have</p>
+<p>$$
+\text{CashFlow} = \text{TaxableIncome} + \delta \sm \text{Depreciation} - \text{Investment} - \text{Tax} + \Delta{Debt} - \text{Dividends} + \text{NetStockIssuance}.
+$$</p>
+<p>Some algebra allows us to write</p>
+<p>$$
+\text{CashFlow} = (1 - \tau_c) \sm (\text{Revenue} - \text{Cost} - r_d \sm \text{Debt} + r_f \sm \text{Cash}) 
++ \tau_c \sm \delta \sm \text{BookValueOfCapital} - \text{Investment} + \Delta \text{Debt} - \text{Dividends}.
+$$</p>
 </div>
 </div>
 </div>

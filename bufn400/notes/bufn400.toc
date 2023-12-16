@@ -1,0 +1,47 @@
+\contentsline {section}{\numberline {1}Background Notes}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Linear Algebra}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Bernoulli and Binomial Random Variables}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Normal Distribution}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Conditional Distributions}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Simple Ordinary Least Squares}{3}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Multiple Ordinary Least Squares}{3}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Time Value of Money}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Simple Interest}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Compound Interest}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Continuously Compounded Interest ($e^{rt}$)}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Discount Rates}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Present Value and Future Value}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Derived Interest Rates for Quoting and Modeling}{5}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Implied Forward Rates}{5}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Unchanging Yield Curve Function}{5}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Unchanging Implied Returns: Implied Forward Rates and Spot Rates}{5}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Instantaneous Forward Rates}{6}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\numberline {2.7.4}Forward Discount Factor}{7}{subsubsection.2.7.4}%
+\contentsline {subsubsection}{\numberline {2.7.5}The Expectations Hypothesis of the Term Structure of Interest Rates}{7}{subsubsection.2.7.5}%
+\contentsline {section}{\numberline {3}Yield to Maturity and Duration}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Present Value and Net Present Value as Functions of Yield to Maturity}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Notes on Root Finding Algorithms}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Duration}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Exact Duration = Theoretically Correct Macaulay Duration}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Yield Duration = Approximate Macaulay Duration}{9}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Price Sensitivity Duration}{9}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Gordon Growth Model}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Value of Individual Dividends}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Duration of Growth Stocks}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Implied Growth Rate}{10}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Geometric Brownian Motion}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Normal Distributions and the Central Limit Theorem}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Brownian Motion}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Shortfalls of Brownian Motion to Model Stock Prices}{11}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Geometric Brownian Motion}{11}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Percentage Volatility and Log Volatility}{11}{subsubsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.5}Convexity and Jensen's Inequality}{12}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Mean of Geometric Brownian Motion}{12}{subsubsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.6}Risk Premium and Sharpe Ratio}{12}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Growth-Optimal Portfolio}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Mean and Median Returns}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Limit of Geometric Brownian Motion}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Practical Applications}{13}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Internal Rate of Return}{13}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Example Midterm Questions}{13}{section.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
